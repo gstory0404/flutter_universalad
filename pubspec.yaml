@@ -1,0 +1,25 @@
+name: flutter_universalad
+description: A new Flutter project.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.20.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.example.flutter_universalad
+        pluginClass: FlutterUniversaladPlugin
+      ios:
+        pluginClass: FlutterUniversaladPlugin
