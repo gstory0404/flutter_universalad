@@ -174,6 +174,14 @@ FlutterUniversalad.showInterstitialAd();
 
 * 目前插件还在开发完善阶段，有需求或者想一起维护的可以加以下群。
 
+## 插件链接
+
+|插件|地址|
+|:----|:----|
+|穿山甲广告插件|[flutter_unionad](https://github.com/gstory0404/flutter_unionad)|
+|腾讯优量汇广告插件|[flutter_tencentad](https://github.com/gstory0404/flutter_tencentad)|
+|聚合广告插件|[flutter_universalad](https://github.com/gstory0404/flutter_universalad)|
+
 ## 联系方式
 * Email: gstory0404@gmail.com
 
