@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_unionad/flutter_unionad.dart' as FlutterUnionad;
+import 'package:flutter_unionad/flutter_unionad.dart';
 import 'package:flutter_tencentad/flutter_tencentad.dart';
 import 'package:flutter_universalad/ad_code.dart';
 import 'package:flutter_universalad/entity/version_entity.dart';
@@ -14,6 +14,14 @@ export 'package:flutter_universalad/entity/version_entity.dart';
 export 'package:flutter_universalad/ad_code.dart';
 export 'package:flutter_universalad/method_callback.dart';
 export 'flutter_universalad_stream.dart';
+//穿山甲
+export 'package:flutter_unionad/flutter_unionad_stream.dart';
+export 'package:flutter_unionad/flutter_unionad_code.dart';
+export 'package:flutter_unionad/flutter_unionad.dart';
+//优量汇
+export 'package:flutter_tencentad/flutter_tencentad.dart';
+export 'package:flutter_tencentad/flutter_tencentad_stream.dart';
+export 'package:flutter_tencentad/flutter_tencentad_code.dart.dart';
 
 class FlutterUniversalad {
   static const MethodChannel _channel =

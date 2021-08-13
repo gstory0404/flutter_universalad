@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter_tencentad/flutter_tencentad.dart';
-import 'package:flutter_unionad/flutter_unionad.dart' as FlutterUnionad;
+import 'package:flutter_unionad/flutter_unionad.dart';
 import 'package:flutter_universalad/ad_code.dart';
 
 import 'entity/interstitial_load_bean.dart';

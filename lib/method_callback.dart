@@ -16,35 +16,35 @@ class RegisterCallBack {
 }
 
 ///显示
-typedef OnShow = void Function(int sdkType);
+typedef UOnShow = void Function(int sdkType);
 
 ///失败
-typedef OnFail = void Function(int sdkType, int code, dynamic message);
+typedef UOnFail = void Function(int sdkType, int code, dynamic message);
 
 ///点击
-typedef OnClick = void Function(int sdkType);
+typedef UOnClick = void Function(int sdkType);
 
 ///关闭
-typedef OnClose = void Function(int sdkType);
+typedef UOnClose = void Function(int sdkType);
 
 ///广告预加载完成
-typedef OnReady = void Function(int sdkType);
+typedef UOnReady = void Function(int sdkType);
 
 ///广告预加载未完成
-typedef OnUnReady = void Function(int sdkType);
+typedef UOnUnReady = void Function(int sdkType);
 
 ///广告奖励验证
-typedef OnVerify = void Function(
+typedef UOnVerify = void Function(
     int sdkType, String transId, bool verify, int amount, String name);
 
 class URewardCallBack {
-  OnShow? onShow;
-  OnClose? onClose;
-  OnClick? onClick;
-  OnFail? onFail;
-  OnReady? onReady;
-  OnUnReady? onUnReady;
-  OnVerify? onVerify;
+  UOnShow? onShow;
+  UOnClose? onClose;
+  UOnClick? onClick;
+  UOnFail? onFail;
+  UOnReady? onReady;
+  UOnUnReady? onUnReady;
+  UOnVerify? onVerify;
 
   URewardCallBack({
     this.onShow,
@@ -58,12 +58,12 @@ class URewardCallBack {
 }
 
 class UInteractionCallBack {
-  OnShow? onShow;
-  OnClose? onClose;
-  OnClick? onClick;
-  OnFail? onFail;
-  OnReady? onReady;
-  OnUnReady? onUnReady;
+  UOnShow? onShow;
+  UOnClose? onClose;
+  UOnClick? onClick;
+  UOnFail? onFail;
+  UOnReady? onReady;
+  UOnUnReady? onUnReady;
 
   UInteractionCallBack({
     this.onShow,

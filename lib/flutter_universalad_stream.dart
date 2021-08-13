@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter_tencentad/flutter_tencentad.dart';
 import 'package:flutter_universalad/ad_manage.dart';
 import 'package:flutter_universalad/flutter_universalad.dart';
-import 'package:flutter_unionad/flutter_unionad.dart' as FlutterUnionad;
+import 'package:flutter_unionad/flutter_unionad.dart';
 
 import 'ad_code.dart';
 import 'method_callback.dart';
@@ -19,7 +19,7 @@ class FlutterUniversalAdStream {
   }) {
     FlutterTencentAdStream.initAdStream(
       //激励广告
-      rewardAdCallBack: RewardAdCallBack(
+      flutterTencentadRewardCallBack: FlutterTencentadRewardCallBack(
         onShow: () {
           // print("激励广告显示");
           uRewardCallBack?.onShow!(UniversalSdkKType.TENCENT);
@@ -60,7 +60,7 @@ class FlutterUniversalAdStream {
         },
       ),
       //插屏广告
-      interactionAdCallBack: InteractionAdCallBack(
+      flutterTencentadInteractionCallBack: FlutterTencentadInteractionCallBack(
         onShow: () {
           // print("插屏广告显示");
           uInteractionCallBack?.onShow!(UniversalSdkKType.TENCENT);
@@ -94,9 +94,9 @@ class FlutterUniversalAdStream {
       ),
     );
 
-    FlutterUnionad.FlutterUnionadStream.initAdStream(
+    FlutterUnionadStream.initAdStream(
       //激励广告
-      rewardAdCallBack: FlutterUnionad.RewardAdCallBack(
+      flutterUnionadRewardAdCallBack: FlutterUnionadRewardAdCallBack(
         onShow: () {
           // print("激励广告显示");
           uRewardCallBack?.onShow!(UniversalSdkKType.PANGOLIN);
@@ -136,8 +136,8 @@ class FlutterUniversalAdStream {
         },
       ),
       // 新模板渲染插屏广告回调
-      fullScreenVideoAdInteractionCallBack:
-          FlutterUnionad.FullScreenVideoAdInteractionCallBack(
+      flutterUnionadNewInteractionCallBack:
+          FlutterUnionadNewInteractionCallBack(
         onShow: () {
           // print("新模板渲染插屏广告显示");
           uInteractionCallBack?.onShow!(UniversalSdkKType.PANGOLIN);
