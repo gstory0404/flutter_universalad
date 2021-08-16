@@ -37,6 +37,9 @@ typedef UOnUnReady = void Function(int sdkType);
 typedef UOnVerify = void Function(
     int sdkType, String transId, bool verify, int amount, String name);
 
+///
+/// 激励广告回调
+///
 class URewardCallBack {
   UOnShow? onShow;
   UOnClose? onClose;
@@ -57,6 +60,9 @@ class URewardCallBack {
   });
 }
 
+///
+/// 插屏广告回调
+///
 class UInteractionCallBack {
   UOnShow? onShow;
   UOnClose? onClose;
@@ -73,4 +79,40 @@ class UInteractionCallBack {
     this.onReady,
     this.onUnReady,
   });
+}
+
+///
+///banner广告回调
+///
+class UBannerCallBack {
+  UOnShow? onShow;
+  UOnFail? onFail;
+  UOnClose? onClose;
+  UOnClick? onClick;
+
+  UBannerCallBack({this.onShow, this.onFail, this.onClose, this.onClick});
+}
+
+///
+///信息流广告回调
+///
+class UNativeCallBack {
+  UOnShow? onShow;
+  UOnFail? onFail;
+  UOnClose? onClose;
+  UOnClick? onClick;
+
+  UNativeCallBack({this.onShow, this.onFail, this.onClose, this.onClick});
+}
+
+///
+/// 开屏广告回调
+///
+class USplashCallBack {
+  UOnShow? onShow;
+  UOnFail? onFail;
+  UOnClose? onClose;
+  UOnClick? onClick;
+
+  USplashCallBack({this.onShow, this.onFail, this.onClose, this.onClick});
 }

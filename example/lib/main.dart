@@ -3,6 +3,9 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_universalad/flutter_universalad.dart';
+import 'package:flutter_universalad_example/banner_page.dart';
+import 'package:flutter_universalad_example/native_page.dart';
+import 'package:flutter_universalad_example/splash_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -117,41 +120,158 @@ class _MyAppState extends State<Index> {
         appBar: AppBar(
           title: Text('Flutter_universalad'),
         ),
-        body: Column(
-          children: [
-            Text('SDK初始化--> $_registerResult'),
-            Text('SDK版本--> $_sdkVersion'),
-            //激励广告
-            MaterialButton(
-              color: Colors.blue,
-              textColor: Colors.white,
-              child: new Text('激励广告'),
-              onPressed: () async {
-                await FlutterUniversalad.loadRewardVideoAd(
-                    pangolinId: "945418088",//穿山甲广告id
-                    tencentId: "5042816813706194",//优量汇广告id
-                    rewardName: "金币",//奖励名称
-                    rewardAmount: 10,//奖励数量
-                    userID: "123",//用户id
-                    loadType: UniversalLoadType.INTURN,//交替加载
-                    probability: 0.5);//穿山甲出现的几率
-              },
+        body: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          reverse: false,
+          physics: BouncingScrollPhysics(),
+          child: Container(
+            alignment: Alignment.center,
+            child: Column(
+              children: [
+                Text('SDK初始化--> $_registerResult'),
+                Text('SDK版本--> $_sdkVersion'),
+                //穿山甲激励广告
+                MaterialButton(
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  child: new Text('穿山甲激励广告'),
+                  onPressed: () async {
+                    FlutterUnionad.loadRewardVideoAd(
+                      mIsExpress: true,
+                      //是否个性化 选填
+                      androidCodeId: "945418088",
+                      //Android 激励视频广告id  必填
+                      iosCodeId: "945418088",
+                      //ios 激励视频广告id  必填
+                      supportDeepLink: true,
+                      //是否支持 DeepLink 选填
+                      rewardName: "100金币",
+                      //奖励名称 选填
+                      rewardAmount: 100,
+                      //奖励数量 选填
+                      userID: "123",
+                      //  用户id 选填
+                      orientation: FlutterUnionadOrientation.VERTICAL,
+                      //视屏方向 选填
+                      mediaExtra: null, //扩展参数 选填
+                    );
+                  },
+                ),
+                //优量汇激励广告
+                MaterialButton(
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  child: new Text('优量汇激励广告'),
+                  onPressed: () async {
+                    await FlutterTencentad.loadRewardVideoAd(
+                      //广告id
+                      codeId: "5042816813706194",
+                    );
+                  },
+                ),
+                //聚合激励广告
+                MaterialButton(
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  child: new Text('聚合激励广告'),
+                  onPressed: () async {
+                    await FlutterUniversalad.loadRewardVideoAd(
+                        pangolinId: "945418088",//穿山甲广告id
+                        tencentId: "5042816813706194",//优量汇广告id
+                        rewardName: "金币",//奖励名称
+                        rewardAmount: 10,//奖励数量
+                        userID: "123",//用户id
+                        loadType: UniversalLoadType.INTURN,//交替加载
+                        probability: 0.5);//穿山甲出现的几率
+                  },
+                ),
+                //穿山甲插屏广告
+                MaterialButton(
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  child: new Text('穿山甲插屏广告'),
+                  onPressed: () async {
+                    FlutterUnionad.loadFullScreenVideoAdInteraction(
+                      androidCodeId: "946201351", //android 全屏广告id 必填
+                      iosCodeId: "946201351", //ios 全屏广告id 必填
+                      supportDeepLink: true, //是否支持 DeepLink 选填
+                      orientation: FlutterUnionadOrientation.VERTICAL, //视屏方向 选填
+                    );
+                  },
+                ),
+                //优量汇插屏广告
+                MaterialButton(
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  child: new Text('优量汇插屏广告'),
+                  onPressed: () async {
+                    await FlutterTencentad.loadUnifiedInterstitialAD(
+                      //广告id
+                      codeId: "9062813863614416",
+                      //是否全屏
+                      isFullScreen: false,
+                    );
+                  },
+                ),
+                //聚合插屏广告
+                MaterialButton(
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  child: new Text('聚合插屏广告'),
+                  onPressed: () async {
+                    await FlutterUniversalad.loadInterstitialAd(
+                        pangolinId: "946201351",//穿山甲广告id
+                        tencentId: "9062813863614416",//优量汇广告id
+                        isFullScreen: false,//是否全屏 仅优量汇起效
+                        loadType: UniversalLoadType.INTURN,//交替加载
+                        probability: 0.5);//穿山甲出现的几率
+                  },
+                ),
+                //Banner广告
+                MaterialButton(
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  child: new Text('Banner广告'),
+                  onPressed: () async {
+                    Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                        builder: (context) => new BannerPage(),
+                      ),
+                    );
+                  },
+                ),
+                //信息流广告
+                MaterialButton(
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  child: new Text('信息流广告'),
+                  onPressed: () async {
+                    Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                        builder: (context) => new NativePage(),
+                      ),
+                    );
+                  },
+                ),
+                //开屏广告
+                MaterialButton(
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  child: new Text('开屏广告'),
+                  onPressed: () async {
+                    Navigator.push(
+                      context,
+                      new MaterialPageRoute(
+                        builder: (context) => new SplashPage(),
+                      ),
+                    );
+                  },
+                ),
+              ],
             ),
-            //插屏广告
-            MaterialButton(
-              color: Colors.blue,
-              textColor: Colors.white,
-              child: new Text('插屏广告'),
-              onPressed: () async {
-                await FlutterUniversalad.loadInterstitialAd(
-                    pangolinId: "946201351",//穿山甲广告id
-                    tencentId: "9062813863614416",//优量汇广告id
-                    isFullScreen: false,//是否全屏 仅优量汇起效
-                    loadType: UniversalLoadType.INTURN,//交替加载
-                    probability: 0.5);//穿山甲出现的几率
-              },
-            ),
-          ],
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter_tencentad/flutter_tencentad.dart';
 import 'package:flutter_universalad/ad_manage.dart';
@@ -30,7 +31,9 @@ class FlutterUniversalAdStream {
         },
         onFail: (code, message) {
           // print("激励广告失败 $code $message");
-          if (AdManage.instance.rewardLoadBean.lastShowSuccess) {
+          if (AdManage.instance.rewardLoadBean.lastShowSuccess &&
+              Platform.isAndroid &&
+              AdManage.instance.rewardLoadBean.pangolinId.isNotEmpty) {
             AdManage.instance.rewardLoadBean.lastShowSuccess = false;
             AdManage.instance.loadRewardAd(UniversalSdkKType.PANGOLIN);
           } else {
@@ -42,6 +45,7 @@ class FlutterUniversalAdStream {
           uRewardCallBack?.onClick!(UniversalSdkKType.TENCENT);
         },
         onReady: () async {
+          AdManage.instance.rewardLoadBean.lastSdk = UniversalSdkKType.TENCENT;
           // print("激励广告预加载准备就绪");
           uRewardCallBack?.onReady!(UniversalSdkKType.TENCENT);
         },
@@ -71,7 +75,9 @@ class FlutterUniversalAdStream {
         },
         onFail: (code, message) {
           // print("插屏广告失败 $code $message");
-          if (AdManage.instance.interstitialLoadBean.lastShowSuccess) {
+          if (AdManage.instance.interstitialLoadBean.lastShowSuccess &&
+              Platform.isAndroid &&
+              AdManage.instance.interstitialLoadBean.pangolinId.isNotEmpty) {
             AdManage.instance.interstitialLoadBean.lastShowSuccess = false;
             AdManage.instance.loadInteractionAd(UniversalSdkKType.PANGOLIN);
           } else {
@@ -84,6 +90,7 @@ class FlutterUniversalAdStream {
           uInteractionCallBack?.onClose!(UniversalSdkKType.TENCENT);
         },
         onReady: () async {
+          AdManage.instance.interstitialLoadBean.lastSdk = UniversalSdkKType.TENCENT;
           // print("插屏广告预加载准备就绪");
           uInteractionCallBack?.onReady!(UniversalSdkKType.TENCENT);
         },
@@ -107,9 +114,10 @@ class FlutterUniversalAdStream {
         },
         onFail: (error) {
           // print("激励广告失败 $error");
-          if (AdManage.instance.interstitialLoadBean.lastShowSuccess) {
-            AdManage.instance.interstitialLoadBean.lastShowSuccess = false;
-            AdManage.instance.loadInteractionAd(UniversalSdkKType.TENCENT);
+          if (AdManage.instance.rewardLoadBean.lastShowSuccess &&
+              AdManage.instance.rewardLoadBean.tencentId.isNotEmpty) {
+            AdManage.instance.rewardLoadBean.lastShowSuccess = false;
+            AdManage.instance.loadRewardAd(UniversalSdkKType.TENCENT);
           } else {
             uRewardCallBack?.onFail!(UniversalSdkKType.PANGOLIN, 0, error);
           }
@@ -126,6 +134,7 @@ class FlutterUniversalAdStream {
           uRewardCallBack?.onReady!(UniversalSdkKType.PANGOLIN);
         },
         onUnReady: () {
+          AdManage.instance.interstitialLoadBean.lastSdk = UniversalSdkKType.PANGOLIN;
           // print("激励广告预加载未准备就绪");
           uRewardCallBack?.onUnReady!(UniversalSdkKType.PANGOLIN);
         },
@@ -154,7 +163,8 @@ class FlutterUniversalAdStream {
         },
         onFail: (error) {
           // print("新模板渲染插屏广告错误 $error");
-          if (AdManage.instance.interstitialLoadBean.lastShowSuccess) {
+          if (AdManage.instance.interstitialLoadBean.lastShowSuccess &&
+              AdManage.instance.interstitialLoadBean.tencentId.isNotEmpty) {
             AdManage.instance.interstitialLoadBean.lastShowSuccess = false;
             AdManage.instance.loadInteractionAd(UniversalSdkKType.TENCENT);
           } else {
@@ -166,6 +176,7 @@ class FlutterUniversalAdStream {
           uInteractionCallBack?.onClose!(UniversalSdkKType.PANGOLIN);
         },
         onReady: () async {
+          AdManage.instance.interstitialLoadBean.lastSdk = UniversalSdkKType.PANGOLIN;
           // print("新模板渲染插屏广告预加载准备就绪");
           uInteractionCallBack?.onReady!(UniversalSdkKType.PANGOLIN);
         },

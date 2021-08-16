@@ -4,7 +4,10 @@ import 'dart:math';
 import 'package:flutter_tencentad/flutter_tencentad.dart';
 import 'package:flutter_unionad/flutter_unionad.dart';
 import 'package:flutter_universalad/ad_code.dart';
+import 'package:flutter_universalad/entity/native_load_bean.dart';
+import 'package:flutter_universalad/entity/splash_load_bean.dart';
 
+import 'entity/banner_load_bean.dart';
 import 'entity/interstitial_load_bean.dart';
 import 'entity/reward_load_bean.dart';
 
@@ -22,6 +25,9 @@ class AdManage {
   AdManage._() {
     rewardLoadBean = RewardLoadBean();
     interstitialLoadBean = InterstitialLoadBean();
+    bannerLoadBean = BannerLoadBean();
+    nativeLoadBean = NativeLoadBean();
+    splashLoadBean = SplashLoadBean();
   }
 
   static AdManage _getInstance() {
@@ -36,6 +42,15 @@ class AdManage {
 
   //插屏广告缓存
   late InterstitialLoadBean interstitialLoadBean;
+
+  //banner广告缓存
+  late BannerLoadBean bannerLoadBean;
+
+  //信息流广告缓存
+  late NativeLoadBean nativeLoadBean;
+
+  //开屏广告上一次缓存
+  late SplashLoadBean splashLoadBean;
 
   ///
   /// 计算将要加载哪个SDK广告
@@ -55,9 +70,9 @@ class AdManage {
       //依次加载
     } else if (loadType == UniversalLoadType.INTURN) {
       //目前ios暂不支持优量汇
-      if(Platform.isIOS){
+      if (Platform.isIOS) {
         sdkType = UniversalSdkKType.PANGOLIN;
-      }else{
+      } else {
         //激励广告
         if (adtype == UniversalAdType.REWARD) {
           if (rewardLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
@@ -68,6 +83,27 @@ class AdManage {
           //插屏广告
         } else if (adtype == UniversalAdType.INTERSTITIAL) {
           if (interstitialLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
+            sdkType = UniversalSdkKType.TENCENT;
+          } else {
+            sdkType = UniversalSdkKType.PANGOLIN;
+          }
+          //banner广告
+        } else if (adtype == UniversalAdType.BANNER) {
+          if (bannerLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
+            sdkType = UniversalSdkKType.TENCENT;
+          } else {
+            sdkType = UniversalSdkKType.PANGOLIN;
+          }
+          //信息流广告
+        } else if (adtype == UniversalAdType.NATIVE) {
+          if (nativeLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
+            sdkType = UniversalSdkKType.TENCENT;
+          } else {
+            sdkType = UniversalSdkKType.PANGOLIN;
+          }
+          //开屏广告
+        } else if (adtype == UniversalAdType.SPLAH) {
+          if (splashLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
             sdkType = UniversalSdkKType.TENCENT;
           } else {
             sdkType = UniversalSdkKType.PANGOLIN;
