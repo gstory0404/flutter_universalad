@@ -5,7 +5,7 @@
 </p>
 
 ## 简介
-  flutter_universalad是一款聚合字节跳动穿山甲广告插件[flutter_unionad](https://github.com/gstory0404/flutter_unionad)、腾讯优量汇聚合广告[flutter_tencentad](https://github.com/gstory0404/flutter_tencentad)插件,方便直接调用多个厂商广告。
+  flutter_universalad是一款聚合字节跳动穿山甲广告插件[flutter_unionad](https://github.com/gstory0404/flutter_unionad)、腾讯优量汇聚合广告[flutter_tencentad](https://github.com/gstory0404/flutter_tencentad)插件,方便直接调用多个厂商广告。[体验demo](https://www.pgyer.com/j7YB)
   
 ## 文档
 
@@ -80,7 +80,7 @@ await FlutterUniversalad.loadRewardVideoAd(
                     rewardName: "金币",//奖励名称
                     rewardAmount: 10,//奖励数量
                     userID: "123",//用户id
-                    loadType: UniversalLoadType.INTURN,//UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
+                    loadType: UniversalLoadType.INTURN,//广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
                     probability: 0.5);//穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
               },
 ```
@@ -130,7 +130,7 @@ await FlutterUniversalad.loadInterstitialAd(
                     pangolinId: "946201351",//穿山甲广告id
                     tencentId: "9062813863614416",//优量汇广告id
                     isFullScreen: false,//是否全屏 仅优量汇起效
-                    loadType: UniversalLoadType.INTURN,//UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
+                    loadType: UniversalLoadType.INTURN,//广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
                     probability: 0.5);//穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
               },
 ```
@@ -168,9 +168,86 @@ FlutterUniversalAdStream.initAdStream(
 FlutterUniversalad.showInterstitialAd();
 ```
 
+#### 5、开屏广告
+
+```dart
+FlutterUniversalad.splashAdView(
+        pangolinId: "887367774",//穿山甲广告id
+        tencentId: "4052216802299999",//优量汇广告id
+        loadType: UniversalLoadType.INTURN,//广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
+        probability: 0.5,//穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
+        callBack: USplashCallBack(
+          onShow: (sdkType) {
+            print("$sdkType  开屏广告显示");
+          },
+          onFail: (sdkType, code, message) {
+            print("$sdkType  开屏广告失败  $code $message");
+            Navigator.pop(context);
+          },
+          onClick: (sdkType) {
+            print("$sdkType  开屏广告点击");
+          },
+          onClose: (sdkType) {
+            print("$sdkType  开屏广告关闭");
+            Navigator.pop(context);
+          },
+        )
+```
+
+#### 6、信息流广告
+```dart
+FlutterUniversalad.nativeAdView(
+              pangolinId: "945417699",//穿山甲广告id
+              tencentId: "4072918853903023",//优量汇广告id
+              width: 400.0,//宽 dp
+              height: 260.0,//高 dp
+              loadType: UniversalLoadType.INTURN,//广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
+              probability: 0.5,//穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
+              callBack: UNativeCallBack(
+                onShow: (sdkType) {
+                  print("$sdkType  Native广告显示");
+                },
+                onFail: (sdkType, code, message) {
+                  print("$sdkType  Native广告失败  $code $message");
+                },
+                onClick: (sdkType) {
+                  print("$sdkType  Native广告点击");
+                },
+                onClose: (sdkType) {
+                  print("$sdkType  Native广告关闭");
+                },
+              ),
+            )
+```
+#### 7、Banner广告
+```dart
+FlutterUniversalad.bannerAdView(
+              pangolinId: "945410197",//穿山甲广告id
+              tencentId: "8042711873318113",//优量汇广告id
+              width: 300.0,//宽 dp
+              height: 100.0,//高 dp
+              loadType: UniversalLoadType.INTURN,//广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
+              probability: 0.5,//穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
+              callBack: UBannerCallBack(
+                onShow: (sdkType) {
+                  print("$sdkType  Banner广告显示");
+                },
+                onFail: (sdkType, code, message) {
+                  print("$sdkType  Banner广告失败  $code $message");
+                },
+                onClick: (sdkType) {
+                  print("$sdkType  Banner广告点击");
+                },
+                onClose: (sdkType) {
+                  print("$sdkType  Banner广告关闭");
+                },
+              ),
+            )
+```
+
 ## 说明
 
-* 腾讯优量汇插件目前Android部分已经全部支持，ios部分暂时还不支持；穿山甲插件已经全部支持；聚合插件目前激励广告、插屏广告Android端回根据规则拉去穿山甲、优量汇数据，ios端只会拉去穿山甲的广告。
+* 聚合插件目前Android端穿山甲、优量汇所有广告，ios端仅支持穿山甲广告。
 
 * 目前插件还在开发完善阶段，有需求或者想一起维护的可以加以下群。
 
