@@ -57,7 +57,37 @@ class _SplashAdViewState extends State<SplashAdView> {
     if (!_isShowAd || _type == 0) {
       return Container();
     }
-    if (_type == UniversalSdkKType.PANGOLIN && !Platform.isIOS) {
+    if (_type == UniversalSdkKType.TENCENT && Platform.isAndroid) {
+      return Container(
+        child: FlutterTencentad.splashAdView(
+          //广告id
+          codeId: widget.tencentId,
+          ////设置开屏广告从请求到展示所花的最大时长（并不是指广告曝光时长），取值范围为[1500, 5000]ms
+          fetchDelay: 3000,
+          //广告回调
+          callBack: FlutterTencentadSplashCallBack(
+            onShow: () {
+              widget.callBack?.onShow!(UniversalSdkKType.TENCENT);
+            },
+            onADTick: (time) {
+              print("开屏广告倒计时剩余时间 $time");
+            },
+            onClick: () {
+              widget.callBack?.onClick!(UniversalSdkKType.TENCENT);
+            },
+            onClose: () {
+              widget.callBack?.onClose!(UniversalSdkKType.TENCENT);
+            },
+            onExpose: () {
+              print("开屏广告曝光");
+            },
+            onFail: (code, message) {
+              widget.callBack?.onFail!(UniversalSdkKType.TENCENT, 0, message);
+            },
+          ),
+        ),
+      );
+    } else {
       return Container(
         child: FlutterUnionad.splashAdView(
           //是否使用个性化模版  设定widget宽高
@@ -90,36 +120,6 @@ class _SplashAdViewState extends State<SplashAdView> {
             },
             onTimeOut: () {
               widget.callBack?.onFail!(UniversalSdkKType.PANGOLIN, 0, "广告超时");
-            },
-          ),
-        ),
-      );
-    } else {
-      return Container(
-        child: FlutterTencentad.splashAdView(
-          //广告id
-          codeId: widget.tencentId,
-          ////设置开屏广告从请求到展示所花的最大时长（并不是指广告曝光时长），取值范围为[1500, 5000]ms
-          fetchDelay: 3000,
-          //广告回调
-          callBack: FlutterTencentadSplashCallBack(
-            onShow: () {
-              widget.callBack?.onShow!(UniversalSdkKType.TENCENT);
-            },
-            onADTick: (time) {
-              print("开屏广告倒计时剩余时间 $time");
-            },
-            onClick: () {
-              widget.callBack?.onClick!(UniversalSdkKType.TENCENT);
-            },
-            onClose: () {
-              widget.callBack?.onClose!(UniversalSdkKType.TENCENT);
-            },
-            onExpose: () {
-              print("开屏广告曝光");
-            },
-            onFail: (code, message) {
-              widget.callBack?.onFail!(UniversalSdkKType.TENCENT, 0, message);
             },
           ),
         ),

@@ -64,7 +64,40 @@ class _BannerAdViewState extends State<BannerAdView> {
     if (!_isShowAd || _type == 0) {
       return Container();
     }
-    if (_type == UniversalSdkKType.PANGOLIN && !Platform.isIOS) {
+    if (_type == UniversalSdkKType.TENCENT && Platform.isAndroid) {
+      return Container(
+        child: FlutterTencentad.bannerAdView(
+          codeId: widget.tencentId,
+          viewWidth: widget.width,
+          viewHeight: widget.height,
+          callBack: FlutterTencentadBannerCallBack(
+            onShow: () {
+              widget.callBack?.onShow!(UniversalSdkKType.TENCENT);
+            },
+            onFail: (code, message) {
+              if (isLoadSuccess) {
+                setState(() {
+                  isLoadSuccess = false;
+                  _type = UniversalSdkKType.PANGOLIN;
+                });
+              } else {
+                widget.callBack?.onFail!(
+                    UniversalSdkKType.TENCENT, code, message);
+                setState(() {
+                  _isShowAd = false;
+                });
+              }
+            },
+            onClose: () {
+              widget.callBack?.onClose!(UniversalSdkKType.TENCENT);
+            },
+            onClick: () {
+              widget.callBack?.onClick!(UniversalSdkKType.TENCENT);
+            },
+          ),
+        ),
+      );
+    } else {
       return Container(
         child: FlutterUnionad.bannerAdView(
           androidCodeId: widget.pangolinId,
@@ -94,39 +127,6 @@ class _BannerAdViewState extends State<BannerAdView> {
                   _isShowAd = false;
                 });
               }
-            },
-          ),
-        ),
-      );
-    } else {
-      return Container(
-        child: FlutterTencentad.bannerAdView(
-          codeId: widget.tencentId,
-          viewWidth: widget.width,
-          viewHeight: widget.height,
-          callBack: FlutterTencentadBannerCallBack(
-            onShow: () {
-              widget.callBack?.onShow!(UniversalSdkKType.TENCENT);
-            },
-            onFail: (code, message) {
-              if (isLoadSuccess) {
-                setState(() {
-                  isLoadSuccess = false;
-                  _type = UniversalSdkKType.PANGOLIN;
-                });
-              } else {
-                widget.callBack?.onFail!(
-                    UniversalSdkKType.TENCENT, code, message);
-                setState(() {
-                  _isShowAd = false;
-                });
-              }
-            },
-            onClose: () {
-              widget.callBack?.onClose!(UniversalSdkKType.TENCENT);
-            },
-            onClick: () {
-              widget.callBack?.onClick!(UniversalSdkKType.TENCENT);
             },
           ),
         ),
