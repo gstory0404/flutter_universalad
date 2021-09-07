@@ -20,7 +20,7 @@ class _SplashPageState extends State<SplashPage> {
     return Container(
       child: FlutterUniversalad.splashAdView(
         pangolinId: "887367774",
-        tencentId: "4052216802299999",
+        tencentId: "8012030096434021",
         loadType: UniversalLoadType.INTURN,
         probability: 0.5,
         callBack: USplashCallBack(

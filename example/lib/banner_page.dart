@@ -66,7 +66,7 @@ class _BannerPageState extends State<BannerPage> {
             Text("优量汇广告"),
             FlutterTencentad.bannerAdView(
               //广告id
-              codeId: "8042711873318113",
+              codeId: "6062430096832369",
               //广告宽 单位dp
               viewWidth: 500,
               //广告高  单位dp   宽高比应该为6.4:1
@@ -93,7 +93,7 @@ class _BannerPageState extends State<BannerPage> {
             Text("聚合广告"),
             FlutterUniversalad.bannerAdView(
               pangolinId: "945410197",
-              tencentId: "8042711873318113",
+              tencentId: "6062430096832369",
               width: 300.0,
               height: 100.0,
               loadType: UniversalLoadType.INTURN,

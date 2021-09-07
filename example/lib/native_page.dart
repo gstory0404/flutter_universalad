@@ -63,7 +63,7 @@ class _NativePageState extends State<NativePage> {
             Text("优量汇广告"),
             FlutterTencentad.expressAdView(
               //广告id
-                codeId: "4072918853903023",
+                codeId: "7082132016439065",
                 //广告宽 单位dp
                 viewWidth: 400,
                 //广告高  单位dp
@@ -90,7 +90,7 @@ class _NativePageState extends State<NativePage> {
             Text("聚合广告"),
             FlutterUniversalad.nativeAdView(
               pangolinId: "945417699",
-              tencentId: "4072918853903023",
+              tencentId: "7082132016439065",
               width: 400.0,
               height: 260.0,
               loadType: UniversalLoadType.INTURN,

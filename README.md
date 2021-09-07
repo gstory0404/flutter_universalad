@@ -1,15 +1,15 @@
-# 字节跳动穿山甲广告、腾讯优量汇聚合广告插件 Flutter版本
+# 字节跳动穿山甲广告、腾讯优量汇(广点通)聚合广告插件 Flutter版本
 
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v0.0.4-success></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.0.0-success></a>
 </p>
 
 ## 简介
-  flutter_universalad是一款聚合字节跳动穿山甲广告插件[flutter_unionad](https://github.com/gstory0404/flutter_unionad)、腾讯优量汇的聚合广告插件,方便直接调用多个厂商广告。[体验demo](https://www.pgyer.com/j7YB)
+  flutter_universalad是一款聚合字节跳动穿山甲广告插件[flutter_unionad](https://github.com/gstory0404/flutter_unionad)、腾讯优量汇的聚合广告插件,方便直接调用多个厂商广告[flutter_tencentad](https://github.com/gstory0404/flutter_tencentad)。[体验demo](https://www.pgyer.com/j7YB)
   
 ## 文档
 
-推荐参考一下插件的文档进行插件的集成。
+推荐参考以下插件的文档进行插件的集成。
 
 * [flutter_unionad](https://github.com/gstory0404/flutter_unionad)
 
@@ -30,7 +30,7 @@
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_universalad: ^0.0.4
+flutter_universalad: ^1.0.0
 ```
   
 #### 2、引入
@@ -89,31 +89,31 @@ await FlutterUniversalad.loadRewardVideoAd(
 
 ```dart
 FlutterUniversalAdStream.initAdStream(
-      uRewardCallBack: URewardCallBack(
-        onShow: (sdkType) {
-          print("$sdkType  激励广告开始显示");
+    uRewardCallBack: URewardCallBack(
+    onShow: (sdkType) {
+        print("$sdkType  激励广告开始显示");
         },
-        onFail: (sdkType, code, message) {
-         //只有两个插件都失败的情况下才会返回失败，只返回最后一次失败的参数，单独一个失败，会保底去拉取另一个sdk广告
-          print("$sdkType  激励广告失败 $code $message");
+    onFail: (sdkType, code, message) {
+        print("$sdkType  激励广告失败 $code $message");
         },
-        onClick: (sdkType) {
-          print("$sdkType  激励广告点击");
+    onClick: (sdkType) {
+        print("$sdkType  激励广告点击");
         },
-        onClose: (sdkType) {
-          print("$sdkType  激励广告关闭");
+    onClose: (sdkType) {
+        print("$sdkType  激励广告关闭");
         },
-        onReady: (sdkType) {
-          print("$sdkType  激励广告预加载完成");
-          FlutterUniversalad.showRewardVideoAd();
+    onReady: (sdkType) {
+    print("$sdkType  激励广告预加载完成");
+        FlutterUniversalad.showRewardVideoAd();
         },
-        onUnReady: (sdkType) {
-          print("$sdkType  激励广告未预加载");
+    onUnReady: (sdkType) {
+        print("$sdkType  激励广告未预加载");
         },
-        onVerify: (sdkType, transId, verify, amount, name) {
-          print("$sdkType  激励广告观看成功 transId=$transId verify=$verify amount=$amount name=$name");
+    onVerify: (sdkType, transId, verify, amount, name) {
+        print(
+        "$sdkType  激励广告观看成功 transId=$transId verify=$verify amount=$amount name=$name");
         },
-      ),
+    ),  
    );
 ```
 展示激励广告
@@ -247,9 +247,7 @@ FlutterUniversalad.bannerAdView(
 
 ## 说明
 
-* 聚合插件目前Android端穿山甲、优量汇所有广告，ios端仅支持穿山甲广告。
-
-* 目前插件还在开发完善阶段，有需求或者想一起维护的可以加以下群。
+* 聚合插件仅支持穿山甲、优量汇(广点通)的andorid、ios广告。
 
 ## 插件链接
 

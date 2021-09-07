@@ -57,7 +57,7 @@ class _SplashAdViewState extends State<SplashAdView> {
     if (!_isShowAd || _type == 0) {
       return Container();
     }
-    if (_type == UniversalSdkKType.TENCENT && Platform.isAndroid) {
+    if (_type == UniversalSdkKType.TENCENT) {
       return Container(
         child: FlutterTencentad.splashAdView(
           //广告id
@@ -82,7 +82,17 @@ class _SplashAdViewState extends State<SplashAdView> {
               print("开屏广告曝光");
             },
             onFail: (code, message) {
-              widget.callBack?.onFail!(UniversalSdkKType.TENCENT, 0, message);
+              if (isLoadSuccess) {
+                setState(() {
+                  isLoadSuccess = false;
+                  _type = UniversalSdkKType.PANGOLIN;
+                });
+              } else {
+                widget.callBack?.onFail!(UniversalSdkKType.TENCENT, 0, message);
+                setState(() {
+                  _isShowAd = false;
+                });
+              }
             },
           ),
         ),
@@ -110,7 +120,17 @@ class _SplashAdViewState extends State<SplashAdView> {
               widget.callBack?.onClick!(UniversalSdkKType.PANGOLIN);
             },
             onFail: (error) {
-              widget.callBack?.onFail!(UniversalSdkKType.PANGOLIN, 0, error);
+              if (isLoadSuccess) {
+                setState(() {
+                  isLoadSuccess = false;
+                  _type = UniversalSdkKType.TENCENT;
+                });
+              } else {
+                widget.callBack?.onFail!(UniversalSdkKType.PANGOLIN, 0, error);
+                setState(() {
+                  _isShowAd = false;
+                });
+              }
             },
             onFinish: () {
               widget.callBack?.onClose!(UniversalSdkKType.PANGOLIN);

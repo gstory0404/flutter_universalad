@@ -64,7 +64,7 @@ class _NativeAdViewState extends State<NativeAdView> {
     if (!_isShowAd || _type == 0) {
       return Container();
     }
-    if (_type == UniversalSdkKType.TENCENT && Platform.isAndroid) {
+    if (_type == UniversalSdkKType.TENCENT) {
       return Container(
         child: FlutterTencentad.expressAdView(
           codeId: widget.tencentId,
@@ -116,7 +116,7 @@ class _NativeAdViewState extends State<NativeAdView> {
               widget.callBack?.onClose!(UniversalSdkKType.PANGOLIN);
             },
             onFail: (error) {
-              if (isLoadSuccess && Platform.isAndroid) {
+              if (isLoadSuccess) {
                 setState(() {
                   isLoadSuccess = false;
                   _type = UniversalSdkKType.TENCENT;

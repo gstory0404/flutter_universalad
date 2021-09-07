@@ -64,7 +64,7 @@ class _BannerAdViewState extends State<BannerAdView> {
     if (!_isShowAd || _type == 0) {
       return Container();
     }
-    if (_type == UniversalSdkKType.TENCENT && Platform.isAndroid) {
+    if (_type == UniversalSdkKType.TENCENT) {
       return Container(
         child: FlutterTencentad.bannerAdView(
           codeId: widget.tencentId,
@@ -116,7 +116,7 @@ class _BannerAdViewState extends State<BannerAdView> {
               widget.callBack?.onClose!(UniversalSdkKType.PANGOLIN);
             },
             onFail: (error) {
-              if (isLoadSuccess && Platform.isAndroid) {
+              if (isLoadSuccess) {
                 setState(() {
                   isLoadSuccess = false;
                   _type = UniversalSdkKType.TENCENT;

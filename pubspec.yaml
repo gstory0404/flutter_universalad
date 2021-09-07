@@ -1,6 +1,6 @@
 name: flutter_universalad
 description: A flutter plugin for TencentAD and Bytedance-UnionAD.
-version: 0.0.4
+version: 1.0.0
 homepage: https://github.com/gstory0404/flutter_universalad
 
 environment:
@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_tencentad: ^0.0.6
+  flutter_tencentad: ^1.0.0
   flutter_unionad: ^1.1.1
 
 dev_dependencies:

@@ -70,44 +70,41 @@ class AdManage {
       //依次加载
     } else if (loadType == UniversalLoadType.INTURN) {
       //目前ios暂不支持优量汇
-      if (Platform.isIOS) {
-        sdkType = UniversalSdkKType.PANGOLIN;
-      } else {
-        //激励广告
-        if (adtype == UniversalAdType.REWARD) {
-          if (rewardLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
-            sdkType = UniversalSdkKType.TENCENT;
-          } else {
-            sdkType = UniversalSdkKType.PANGOLIN;
-          }
-          //插屏广告
-        } else if (adtype == UniversalAdType.INTERSTITIAL) {
-          if (interstitialLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
-            sdkType = UniversalSdkKType.TENCENT;
-          } else {
-            sdkType = UniversalSdkKType.PANGOLIN;
-          }
-          //banner广告
-        } else if (adtype == UniversalAdType.BANNER) {
-          if (bannerLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
-            sdkType = UniversalSdkKType.TENCENT;
-          } else {
-            sdkType = UniversalSdkKType.PANGOLIN;
-          }
-          //信息流广告
-        } else if (adtype == UniversalAdType.NATIVE) {
-          if (nativeLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
-            sdkType = UniversalSdkKType.TENCENT;
-          } else {
-            sdkType = UniversalSdkKType.PANGOLIN;
-          }
-          //开屏广告
-        } else if (adtype == UniversalAdType.SPLAH) {
-          if (splashLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
-            sdkType = UniversalSdkKType.TENCENT;
-          } else {
-            sdkType = UniversalSdkKType.PANGOLIN;
-          }
+
+      //激励广告
+      if (adtype == UniversalAdType.REWARD) {
+        if (rewardLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
+          sdkType = UniversalSdkKType.TENCENT;
+        } else {
+          sdkType = UniversalSdkKType.PANGOLIN;
+        }
+        //插屏广告
+      } else if (adtype == UniversalAdType.INTERSTITIAL) {
+        if (interstitialLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
+          sdkType = UniversalSdkKType.TENCENT;
+        } else {
+          sdkType = UniversalSdkKType.PANGOLIN;
+        }
+        //banner广告
+      } else if (adtype == UniversalAdType.BANNER) {
+        if (bannerLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
+          sdkType = UniversalSdkKType.TENCENT;
+        } else {
+          sdkType = UniversalSdkKType.PANGOLIN;
+        }
+        //信息流广告
+      } else if (adtype == UniversalAdType.NATIVE) {
+        if (nativeLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
+          sdkType = UniversalSdkKType.TENCENT;
+        } else {
+          sdkType = UniversalSdkKType.PANGOLIN;
+        }
+        //开屏广告
+      } else if (adtype == UniversalAdType.SPLAH) {
+        if (splashLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
+          sdkType = UniversalSdkKType.TENCENT;
+        } else {
+          sdkType = UniversalSdkKType.PANGOLIN;
         }
       }
     }
@@ -133,7 +130,10 @@ class AdManage {
     if (type == UniversalSdkKType.TENCENT) {
       //优量汇
       await FlutterTencentad.loadRewardVideoAd(
-          codeId: rewardLoadBean.tencentId);
+          codeId: rewardLoadBean.tencentId,
+          rewardName: rewardLoadBean.rewardName,
+          rewardAmount: rewardLoadBean.rewardAmount,
+          userID: rewardLoadBean.userID);
     } else {
       //穿山甲
       await FlutterUnionad.loadRewardVideoAd(
