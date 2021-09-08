@@ -12,8 +12,10 @@ import 'package:flutter_universalad/method_callback.dart';
 /// @Description: dart类作用描述
 
 class NativeAdView extends StatefulWidget {
-  final String pangolinId;
-  final String tencentId;
+  final String pAndroidId;
+  final String pIosId;
+  final String tAndroidId;
+  final String tIosId;
   final double width;
   final double height;
   final int loadType;
@@ -22,8 +24,10 @@ class NativeAdView extends StatefulWidget {
 
   const NativeAdView({
     Key? key,
-    required this.pangolinId,
-    required this.tencentId,
+    required this.pAndroidId,
+    required this.pIosId,
+    required this.tAndroidId,
+    required this.tIosId,
     required this.width,
     required this.height,
     required this.loadType,
@@ -67,7 +71,8 @@ class _NativeAdViewState extends State<NativeAdView> {
     if (_type == UniversalSdkKType.TENCENT) {
       return Container(
         child: FlutterTencentad.expressAdView(
-          codeId: widget.tencentId,
+          androidId: widget.tAndroidId,
+          iosId: widget.tIosId,
           viewWidth: widget.width.toInt(),
           viewHeight: widget.height.toInt(),
           callBack: FlutterTencentadExpressCallBack(
@@ -100,8 +105,8 @@ class _NativeAdViewState extends State<NativeAdView> {
     } else {
       return Container(
         child: FlutterUnionad.nativeAdView(
-          androidCodeId: widget.pangolinId,
-          iosCodeId: widget.pangolinId,
+          androidCodeId: widget.pAndroidId,
+          iosCodeId: widget.pIosId,
           expressNum: 1,
           expressViewWidth: widget.width,
           expressViewHeight: widget.height,

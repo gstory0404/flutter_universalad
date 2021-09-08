@@ -69,8 +69,6 @@ class AdManage {
       sdkType = await _getRandomLoadType(probability);
       //依次加载
     } else if (loadType == UniversalLoadType.INTURN) {
-      //目前ios暂不支持优量汇
-
       //激励广告
       if (adtype == UniversalAdType.REWARD) {
         if (rewardLoadBean.lastSdk == UniversalSdkKType.PANGOLIN) {
@@ -130,19 +128,22 @@ class AdManage {
     if (type == UniversalSdkKType.TENCENT) {
       //优量汇
       await FlutterTencentad.loadRewardVideoAd(
-          codeId: rewardLoadBean.tencentId,
+          androidId: rewardLoadBean.tAndroidId,
+          iosId: rewardLoadBean.tIosId,
           rewardName: rewardLoadBean.rewardName,
           rewardAmount: rewardLoadBean.rewardAmount,
-          userID: rewardLoadBean.userID);
+          userID: rewardLoadBean.userID,
+          customData: rewardLoadBean.customData);
     } else {
       //穿山甲
       await FlutterUnionad.loadRewardVideoAd(
           mIsExpress: false,
-          androidCodeId: rewardLoadBean.pangolinId,
-          iosCodeId: rewardLoadBean.pangolinId,
+          androidCodeId: rewardLoadBean.pAndroidId,
+          iosCodeId: rewardLoadBean.pIosId,
           rewardName: rewardLoadBean.rewardName,
           rewardAmount: rewardLoadBean.rewardAmount,
-          userID: rewardLoadBean.userID);
+          userID: rewardLoadBean.userID,
+          mediaExtra: rewardLoadBean.customData);
     }
   }
 
@@ -152,18 +153,20 @@ class AdManage {
   /// [type] 广告SDK
   ///
   void loadInteractionAd(int type) {
+    print("插屏=====》 $type");
     interstitialLoadBean.lastSdk = type;
     if (type == UniversalSdkKType.TENCENT) {
       //优量汇
       FlutterTencentad.loadUnifiedInterstitialAD(
-        codeId: interstitialLoadBean.tencentId,
+        androidId: interstitialLoadBean.tAndroidId,
+        iosId: interstitialLoadBean.tIosId,
         isFullScreen: interstitialLoadBean.isFullScreen,
       );
     } else {
       //穿山甲
       FlutterUnionad.loadFullScreenVideoAdInteraction(
-        androidCodeId: interstitialLoadBean.pangolinId,
-        iosCodeId: interstitialLoadBean.pangolinId,
+        androidCodeId: interstitialLoadBean.pAndroidId,
+        iosCodeId: interstitialLoadBean.tIosId,
       );
     }
   }

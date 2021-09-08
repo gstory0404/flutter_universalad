@@ -38,10 +38,18 @@ class _MyAppState extends State<Index> {
 
   void _register() async {
     await FlutterUniversalad.register(
-      pangolinId: "5098580",
-      tencentId: "1200082163",
+      pAndroidId: "5098580",
+      //穿山甲android id
+      pIosId: "5098580",
+      //穿山甲ios id
+      tAndroidId: "1200009850",
+      //优量汇android id
+      tIosId: "1200082163",
+      //优量汇ios id
       appName: "Flutter_universalad",
+      //app名字
       debug: true,
+      //是否显示日志
       callBack: RegisterCallBack(pangolinInit: (result) {
         setState(() {
           _registerResult = "$_registerResult 穿山甲初始化 $result";
@@ -165,8 +173,9 @@ class _MyAppState extends State<Index> {
                   child: new Text('优量汇激励广告'),
                   onPressed: () async {
                     await FlutterTencentad.loadRewardVideoAd(
+                      androidId: "5042816813706194",
                       //广告id
-                      codeId: "8062535056034159",
+                      iosId: "8062535056034159",
                       rewardName: "金币",
                       rewardAmount: 10,
                       userID: "123",
@@ -180,19 +189,27 @@ class _MyAppState extends State<Index> {
                   child: new Text('聚合激励广告'),
                   onPressed: () async {
                     await FlutterUniversalad.loadRewardVideoAd(
-                        pangolinId: "945418088",
-                        //穿山甲广告id
-                        tencentId: "8062535056034159",
-                        //优量汇广告id
-                        rewardName: "金币",
-                        //奖励名称
-                        rewardAmount: 10,
-                        //奖励数量
-                        userID: "123",
-                        //用户id
-                        loadType: UniversalLoadType.INTURN,
-                        //交替加载
-                        probability: 0.5); //穿山甲出现的几率
+                      //穿山甲广告android id
+                      pAndroidId: "945418088",
+                      //穿山甲广告ios id
+                      pIosId: "945418088",
+                      //优量汇广告android id
+                      tAndroidId: "5042816813706194",
+                      //优量汇广告ios id
+                      tIosId: "8062535056034159",
+                      //奖励名称
+                      rewardName: "金币",
+                      //奖励数量
+                      rewardAmount: 10,
+                      //用户id
+                      userID: "123",
+                      //交替加载
+                      loadType: UniversalLoadType.INTURN,
+                      //穿山甲出现的几率
+                      probability: 0.5,
+                      //扩展参数，开启服务器验证时上报
+                      customData: "",
+                    );
                   },
                 ),
                 //穿山甲插屏广告
@@ -216,8 +233,10 @@ class _MyAppState extends State<Index> {
                   child: new Text('优量汇插屏广告'),
                   onPressed: () async {
                     await FlutterTencentad.loadUnifiedInterstitialAD(
+                      //android广告id
+                      androidId: "9062813863614416",
                       //广告id
-                      codeId: "1052938046031440",
+                      iosId: "1052938046031440",
                       //是否全屏
                       isFullScreen: false,
                     );
@@ -230,15 +249,21 @@ class _MyAppState extends State<Index> {
                   child: new Text('聚合插屏广告'),
                   onPressed: () async {
                     await FlutterUniversalad.loadInterstitialAd(
-                        pangolinId: "946201351",
-                        //穿山甲广告id
-                        tencentId: "1052938046031440",
-                        //优量汇广告id
-                        isFullScreen: false,
-                        //是否全屏 仅优量汇起效
-                        loadType: UniversalLoadType.INTURN,
-                        //交替加载
-                        probability: 0.5); //穿山甲出现的几率
+                      //穿山甲广告android id
+                      pAndroidId: "946201351",
+                      //穿山甲广告ios id
+                      pIosId: "946201351",
+                      //优量汇广告android id
+                      tAndroidId: "9062813863614416",
+                      //优量汇广告ios id
+                      tIosId: "1052938046031440",
+                      //是否全屏 仅优量汇起效
+                      isFullScreen: false,
+                      //交替加载
+                      loadType: UniversalLoadType.INTURN,
+                      //穿山甲出现的几率
+                      probability: 0.5,
+                    ); //穿山甲出现的几率
                   },
                 ),
                 //Banner广告

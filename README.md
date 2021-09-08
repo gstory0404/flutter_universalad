@@ -1,7 +1,7 @@
 # 字节跳动穿山甲广告、腾讯优量汇(广点通)聚合广告插件 Flutter版本
 
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.0.0-success></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.0.1-success></a>
 </p>
 
 ## 简介
@@ -30,7 +30,7 @@
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_universalad: ^1.0.0
+flutter_universalad: ^1.0.1
 ```
   
 #### 2、引入
@@ -44,10 +44,18 @@ import 'package:flutter_universalad/flutter_universalad.dart';
 
 ```Dart
 await FlutterUniversalad.register(
-      pangolinId: "5098580",
-      tencentId: "1200009850",
-      appName: "Flutter_universalad",
-      debug: true,
+        pAndroidId: "5098580",
+        //穿山甲android id
+        pIosId: "5098580",
+        //穿山甲ios id
+        tAndroidId: "1200009850",
+        //优量汇android id
+        tIosId: "1200082163",
+        //优量汇ios id
+        appName: "Flutter_universalad",
+        //app名字
+        debug: true,
+        //是否显示日志
       callBack: RegisterCallBack(pangolinInit: (result) {
         setState(() {
           _registerResult = "$_registerResult 穿山甲初始化 $result";
@@ -75,14 +83,27 @@ VersionEntity versionEntity = await FlutterUniversalad.getSDKVersion();
 
 ```dart
 await FlutterUniversalad.loadRewardVideoAd(
-                    pangolinId: "945418088",//穿山甲广告id
-                    tencentId: "5042816813706194",//优量汇广告id
-                    rewardName: "金币",//奖励名称
-                    rewardAmount: 10,//奖励数量
-                    userID: "123",//用户id
-                    loadType: UniversalLoadType.INTURN,//广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
-                    probability: 0.5);//穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
-              },
+        //穿山甲广告android id
+        pAndroidId: "945418088",
+        //穿山甲广告ios id
+        pIosId: "945418088",
+        //优量汇广告android id
+        tAndroidId: "5042816813706194",
+        //优量汇广告ios id
+        tIosId: "8062535056034159",
+        //奖励名称
+        rewardName: "金币",
+        //奖励数量
+        rewardAmount: 10,
+        //用户id
+        userID: "123",
+        //交替加载
+        loadType: UniversalLoadType.INTURN,
+        //穿山甲出现的几率
+        probability: 0.5,
+        //扩展参数，开启服务器验证时上报
+        customData: "",
+    );
 ```
 
 激励广告监听
@@ -127,12 +148,21 @@ FlutterUniversalad.showRewardVideoAd();
 
 ```dart
 await FlutterUniversalad.loadInterstitialAd(
-                    pangolinId: "946201351",//穿山甲广告id
-                    tencentId: "9062813863614416",//优量汇广告id
-                    isFullScreen: false,//是否全屏 仅优量汇起效
-                    loadType: UniversalLoadType.INTURN,//广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
-                    probability: 0.5);//穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
-              },
+    //穿山甲广告android id
+    pAndroidId: "946201351",
+    //穿山甲广告ios id
+    pIosId: "946201351",
+    //优量汇广告android id
+    tAndroidId: "9062813863614416",
+    //优量汇广告ios id
+    tIosId: "1052938046031440",
+    //是否全屏 仅优量汇起效
+    isFullScreen: false,
+    //交替加载
+    loadType: UniversalLoadType.INTURN,
+    //穿山甲出现的几率
+    probability: 0.5,
+);
 ```
 
 插屏广告监听
@@ -172,10 +202,18 @@ FlutterUniversalad.showInterstitialAd();
 
 ```dart
 FlutterUniversalad.splashAdView(
-        pangolinId: "887367774",//穿山甲广告id
-        tencentId: "4052216802299999",//优量汇广告id
-        loadType: UniversalLoadType.INTURN,//广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
-        probability: 0.5,//穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
+        //穿山甲广告android id
+        pAndroidId: "887367774",
+        //穿山甲广告ios id
+        pIosId: "887367774",
+        //优量汇广告android id
+        tAndroidId: "4052216802299999",
+        //优量汇广告ios id
+        tIosId: "8012030096434021",
+        //广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
+        loadType: UniversalLoadType.INTURN,
+        //穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
+        probability: 0.5,
         callBack: USplashCallBack(
           onShow: (sdkType) {
             print("$sdkType  开屏广告显示");
@@ -197,12 +235,20 @@ FlutterUniversalad.splashAdView(
 #### 6、信息流广告
 ```dart
 FlutterUniversalad.nativeAdView(
-              pangolinId: "945417699",//穿山甲广告id
-              tencentId: "4072918853903023",//优量汇广告id
-              width: 400.0,//宽 dp
-              height: 260.0,//高 dp
-              loadType: UniversalLoadType.INTURN,//广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
-              probability: 0.5,//穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
+                //穿山甲广告android id
+                pAndroidId: "945417699",
+                //穿山甲广告ios id
+                pIosId: "945417699",
+                //优量汇广告android id
+                tAndroidId: "4072918853903023",
+                //优量汇广告ios id
+                tIosId: "7082132016439065",
+                width: 400.0,
+                height: 260.0,
+                //广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
+                loadType: UniversalLoadType.INTURN,
+                //穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
+                probability: 0.5,
               callBack: UNativeCallBack(
                 onShow: (sdkType) {
                   print("$sdkType  Native广告显示");
@@ -222,12 +268,20 @@ FlutterUniversalad.nativeAdView(
 #### 7、Banner广告
 ```dart
 FlutterUniversalad.bannerAdView(
-              pangolinId: "945410197",//穿山甲广告id
-              tencentId: "8042711873318113",//优量汇广告id
-              width: 300.0,//宽 dp
-              height: 100.0,//高 dp
-              loadType: UniversalLoadType.INTURN,//广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
-              probability: 0.5,//穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
+                //穿山甲广告android id
+                pAndroidId: "945410197",
+                //穿山甲广告ios id
+                pIosId: "945410197",
+                //优量汇广告android id
+                tAndroidId: "8042711873318113",
+                //优量汇广告ios id
+                tIosId: "6062430096832369",
+                width: 300.0,
+                height: 100.0,
+                //广告加载模式 UniversalLoadType.INTURN 交替拉取广告，UniversalLoadType.RANDOWM 完全随机拉去广告
+                loadType: UniversalLoadType.INTURN,
+                //穿山甲出现的几率，UniversalLoadType.RANDOWM 起效，「0-1取值，0为不出现 1必出现」
+                probability: 0.5,
               callBack: UBannerCallBack(
                 onShow: (sdkType) {
                   print("$sdkType  Banner广告显示");

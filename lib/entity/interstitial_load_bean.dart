@@ -6,8 +6,10 @@ import '../ad_code.dart';
 /// @Description: dart类作用描述 
 
 class InterstitialLoadBean{
-  String pangolinId = "";
-  String tencentId = "";
+  String pAndroidId = "";
+  String pIosId = "";
+  String tAndroidId = "";
+  String tIosId = "";
   bool isFullScreen = true;
   int lastSdk = UniversalSdkKType.PANGOLIN; //上一次显示的广告sdk
   bool lastShowSuccess = true; //上一次加载广告是否成功

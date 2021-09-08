@@ -9,16 +9,20 @@ import 'package:flutter_universalad/flutter_universalad.dart';
 /// @Description: dart类作用描述
 
 class SplashAdView extends StatefulWidget {
-  final String pangolinId;
-  final String tencentId;
+  final String pAndroidId;
+  final String pIosId;
+  final String tAndroidId;
+  final String tIosId;
   final int loadType;
   final double probability;
   final USplashCallBack? callBack;
 
   const SplashAdView(
       {Key? key,
-      required this.pangolinId,
-      required this.tencentId,
+        required this.pAndroidId,
+        required this.pIosId,
+        required this.tAndroidId,
+        required this.tIosId,
       required this.loadType,
       required this.probability,
       required this.callBack})
@@ -61,7 +65,8 @@ class _SplashAdViewState extends State<SplashAdView> {
       return Container(
         child: FlutterTencentad.splashAdView(
           //广告id
-          codeId: widget.tencentId,
+          androidId: widget.tAndroidId,
+          iosId: widget.tIosId,
           ////设置开屏广告从请求到展示所花的最大时长（并不是指广告曝光时长），取值范围为[1500, 5000]ms
           fetchDelay: 3000,
           //广告回调
@@ -103,9 +108,9 @@ class _SplashAdViewState extends State<SplashAdView> {
           //是否使用个性化模版  设定widget宽高
           mIsExpress: true,
           //android 开屏广告广告id 必填
-          androidCodeId: widget.pangolinId,
+          androidCodeId: widget.pAndroidId,
           //ios 开屏广告广告id 必填
-          iosCodeId: widget.pangolinId,
+          iosCodeId: widget.pIosId,
           //是否支持 DeepLink 选填
           supportDeepLink: true,
           // 期望view 宽度 dp 选填 mIsExpress=true必填

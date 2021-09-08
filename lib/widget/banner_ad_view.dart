@@ -12,8 +12,10 @@ import '../method_callback.dart';
 /// @Description: dart类作用描述
 
 class BannerAdView extends StatefulWidget {
-  final String pangolinId;
-  final String tencentId;
+  final String pAndroidId;
+  final String pIosId;
+  final String tAndroidId;
+  final String tIosId;
   final double width;
   final double height;
   final int loadType;
@@ -22,8 +24,10 @@ class BannerAdView extends StatefulWidget {
 
   const BannerAdView(
       {Key? key,
-      required this.pangolinId,
-      required this.tencentId,
+      required this.pAndroidId,
+      required this.pIosId,
+      required this.tAndroidId,
+      required this.tIosId,
       required this.width,
       required this.height,
       this.callBack,
@@ -67,7 +71,8 @@ class _BannerAdViewState extends State<BannerAdView> {
     if (_type == UniversalSdkKType.TENCENT) {
       return Container(
         child: FlutterTencentad.bannerAdView(
-          codeId: widget.tencentId,
+          androidId: widget.tAndroidId,
+          iosId: widget.tIosId,
           viewWidth: widget.width,
           viewHeight: widget.height,
           callBack: FlutterTencentadBannerCallBack(
@@ -100,8 +105,8 @@ class _BannerAdViewState extends State<BannerAdView> {
     } else {
       return Container(
         child: FlutterUnionad.bannerAdView(
-          androidCodeId: widget.pangolinId,
-          iosCodeId: widget.pangolinId,
+          androidCodeId: widget.pAndroidId,
+          iosCodeId: widget.pIosId,
           expressAdNum: 1,
           expressViewWidth: widget.width,
           expressViewHeight: widget.height,

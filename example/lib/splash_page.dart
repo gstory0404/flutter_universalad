@@ -19,9 +19,17 @@ class _SplashPageState extends State<SplashPage> {
     SystemChrome.setEnabledSystemUIOverlays([]);
     return Container(
       child: FlutterUniversalad.splashAdView(
-        pangolinId: "887367774",
-        tencentId: "8012030096434021",
+        //穿山甲广告android id
+        pAndroidId: "887367774",
+        //穿山甲广告ios id
+        pIosId: "887367774",
+        //优量汇广告android id
+        tAndroidId: "4052216802299999",
+        //优量汇广告ios id
+        tIosId: "8012030096434021",
+        //交替加载
         loadType: UniversalLoadType.INTURN,
+        //穿山甲出现的几率
         probability: 0.5,
         callBack: USplashCallBack(
           onShow: (sdkType) {

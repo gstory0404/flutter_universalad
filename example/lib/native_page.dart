@@ -62,8 +62,9 @@ class _NativePageState extends State<NativePage> {
             ),
             Text("优量汇广告"),
             FlutterTencentad.expressAdView(
-              //广告id
-                codeId: "7082132016439065",
+                androidId: "4072918853903023",
+                //广告id
+                iosId: "7082132016439065",
                 //广告宽 单位dp
                 viewWidth: 400,
                 //广告高  单位dp
@@ -85,12 +86,17 @@ class _NativePageState extends State<NativePage> {
                   onClick: () {
                     print("动态信息流广告点击");
                   },
-                )
-            ),
+                )),
             Text("聚合广告"),
             FlutterUniversalad.nativeAdView(
-              pangolinId: "945417699",
-              tencentId: "7082132016439065",
+              //穿山甲广告android id
+              pAndroidId: "945417699",
+              //穿山甲广告ios id
+              pIosId: "945417699",
+              //优量汇广告android id
+              tAndroidId: "4072918853903023",
+              //优量汇广告ios id
+              tIosId: "7082132016439065",
               width: 400.0,
               height: 260.0,
               loadType: UniversalLoadType.INTURN,

@@ -36,9 +36,13 @@ class FlutterUniversalad {
   ///
   /// # SDK注册初始化
   ///
-  /// [pangolinId] 穿山甲appId
+  /// [pAndroidId] 穿山甲android id
   ///
-  /// [tencentId] 优量汇appId
+  /// [pIosId] 穿山甲ios id
+  ///
+  /// [tAndroidId] 优量汇android id
+  ///
+  /// [tIosId] 优量汇ios id
   ///
   /// [appName] app名称
   ///
@@ -47,20 +51,25 @@ class FlutterUniversalad {
   /// [callBack] 初始化回调
   ///
   static Future<void> register({
-    required String pangolinId,
-    required String tencentId,
+    required String pAndroidId,
+    required String pIosId,
+    required String tAndroidId,
+    required String tIosId,
     required String appName,
     bool? debug,
     RegisterCallBack? callBack,
   }) async {
     bool pangolinInit = await FlutterUnionad.register(
-      iosAppId: pangolinId,
-      androidAppId: pangolinId,
+      androidAppId: pAndroidId,
+      iosAppId: pIosId,
       appName: appName,
       debug: debug,
     );
-    bool tencentInit =
-        await FlutterTencentad.register(appId: tencentId, debug: debug);
+    bool tencentInit = await FlutterTencentad.register(
+      androidId: tAndroidId,
+      iosId: tIosId,
+      debug: debug,
+    );
     callBack?.pangolinInit!(pangolinInit);
     callBack?.tencentInit!(tencentInit);
   }
@@ -77,9 +86,13 @@ class FlutterUniversalad {
 
   /// # 激励视频广告预加载
   ///
-  /// [pangolinId] 穿山甲广告id 必填
+  /// [pAndroidId] 穿山甲广告android id
   ///
-  /// [tencentId] 优量汇广告id 必填
+  /// [pIosId] 穿山甲广告ios id
+  ///
+  /// [tAndroidId] 优量汇广告android id
+  ///
+  /// [tIosId] 优量汇广告ios id
   ///
   /// [rewardName] 奖励名字
   ///
@@ -92,17 +105,22 @@ class FlutterUniversalad {
   /// [probability] 当选取方式为[LoadType.RANDOWM] 随机时 穿山甲广告出现的比例 「0-1取值，0为不出现 1必出现」
   ///
   static Future<void> loadRewardVideoAd({
-    required String pangolinId,
-    required String tencentId,
+    required String pAndroidId,
+    required String pIosId,
+    required String tAndroidId,
+    required String tIosId,
     required String rewardName,
     required int rewardAmount,
     required String userID,
     required int loadType,
     required double probability,
+    String? customData,
   }) async {
     //保存数据
-    AdManage.instance.rewardLoadBean.pangolinId = pangolinId;
-    AdManage.instance.rewardLoadBean.tencentId = tencentId;
+    AdManage.instance.rewardLoadBean.pAndroidId = pAndroidId;
+    AdManage.instance.rewardLoadBean.pIosId = pIosId;
+    AdManage.instance.rewardLoadBean.tAndroidId = tAndroidId;
+    AdManage.instance.rewardLoadBean.tIosId = tIosId;
     AdManage.instance.rewardLoadBean.rewardName = rewardName;
     AdManage.instance.rewardLoadBean.rewardAmount = rewardAmount;
     AdManage.instance.rewardLoadBean.userID = userID;
@@ -111,6 +129,7 @@ class FlutterUniversalad {
     int type = await AdManage.instance
         .getLoadAdtype(UniversalAdType.REWARD, loadType, probability);
     AdManage.instance.rewardLoadBean.lastShowSuccess = true;
+    AdManage.instance.rewardLoadBean.customData = customData ?? "";
     //加载
     AdManage.instance.loadRewardAd(type);
   }
@@ -129,9 +148,13 @@ class FlutterUniversalad {
   ///
   /// # 预加载插屏广告
   ///
-  /// [pangolinId] 穿山甲广告id 必填
+  /// [pAndroidId] 穿山甲广告android id
   ///
-  /// [tencentId] 优量汇广告id 必填
+  /// [pIosId] 穿山甲广告ios id
+  ///
+  /// [tAndroidId] 优量汇广告android id
+  ///
+  /// [tIosId] 优量汇广告ios id
   ///
   ///  [isFullScreen] 是否全屏 仅优量汇起效
   ///
@@ -140,15 +163,19 @@ class FlutterUniversalad {
   /// [probability] 当选取方式为[LoadType.RANDOWM] 随机时 穿山甲广告出现的比例 「0-1取值，0为不出现 1必出现」
   ///
   static Future<void> loadInterstitialAd({
-    required String pangolinId,
-    required String tencentId,
+    required String pAndroidId,
+    required String pIosId,
+    required String tAndroidId,
+    required String tIosId,
     required bool isFullScreen,
     required int loadType,
     required double probability,
   }) async {
     //保存数据
-    AdManage.instance.interstitialLoadBean.pangolinId = pangolinId;
-    AdManage.instance.interstitialLoadBean.tencentId = tencentId;
+    AdManage.instance.interstitialLoadBean.pAndroidId = pAndroidId;
+    AdManage.instance.interstitialLoadBean.pIosId = pIosId;
+    AdManage.instance.interstitialLoadBean.tAndroidId = tAndroidId;
+    AdManage.instance.interstitialLoadBean.tIosId = tIosId;
     AdManage.instance.interstitialLoadBean.isFullScreen = isFullScreen;
     int type = await AdManage.instance
         .getLoadAdtype(UniversalAdType.INTERSTITIAL, loadType, probability);
@@ -173,9 +200,13 @@ class FlutterUniversalad {
   ///
   /// Banner广告
   ///
-  /// [pangolinId] 穿山甲广告id
+  /// [pAndroidId] 穿山甲广告android id
   ///
-  /// [tencentId] 优量汇广告id
+  /// [pIosId] 穿山甲广告ios id
+  ///
+  /// [tAndroidId] 优量汇广告android id
+  ///
+  /// [tIosId] 优量汇广告ios id
   ///
   /// [width] 宽 dp
   ///
@@ -188,8 +219,10 @@ class FlutterUniversalad {
   /// [UBannerCallBack] 广告回调
   ///
   static Widget bannerAdView({
-    required String pangolinId,
-    required String tencentId,
+    required String pAndroidId,
+    required String pIosId,
+    required String tAndroidId,
+    required String tIosId,
     required double width,
     required double height,
     required int loadType,
@@ -197,8 +230,10 @@ class FlutterUniversalad {
     required UBannerCallBack? callBack,
   }) {
     return BannerAdView(
-      pangolinId: pangolinId,
-      tencentId: tencentId,
+      pAndroidId: pAndroidId,
+      pIosId: pIosId,
+      tAndroidId: tAndroidId,
+      tIosId: tIosId,
       width: width,
       height: height,
       loadType: loadType,
@@ -210,9 +245,13 @@ class FlutterUniversalad {
   ///
   /// 信息流广告
   ///
-  /// [pangolinId] 穿山甲广告id
+  /// [pAndroidId] 穿山甲广告android id
   ///
-  /// [tencentId] 优量汇广告id
+  /// [pIosId] 穿山甲广告ios id
+  ///
+  /// [tAndroidId] 优量汇广告android id
+  ///
+  /// [tIosId] 优量汇广告ios id
   ///
   /// [width] 宽 dp
   ///
@@ -225,8 +264,10 @@ class FlutterUniversalad {
   /// [UNativeCallBack] 广告回调
   ///
   static Widget nativeAdView({
-    required String pangolinId,
-    required String tencentId,
+    required String pAndroidId,
+    required String pIosId,
+    required String tAndroidId,
+    required String tIosId,
     required double width,
     required double height,
     required int loadType,
@@ -234,8 +275,10 @@ class FlutterUniversalad {
     required UNativeCallBack? callBack,
   }) {
     return NativeAdView(
-      pangolinId: pangolinId,
-      tencentId: tencentId,
+      pAndroidId: pAndroidId,
+      pIosId: pIosId,
+      tAndroidId: tAndroidId,
+      tIosId: tIosId,
       width: width,
       height: height,
       loadType: loadType,
@@ -247,9 +290,13 @@ class FlutterUniversalad {
   ///
   /// 信息流广告
   ///
-  /// [pangolinId] 穿山甲广告id
+  /// [pAndroidId] 穿山甲广告android id
   ///
-  /// [tencentId] 优量汇广告id
+  /// [pIosId] 穿山甲广告ios id
+  ///
+  /// [tAndroidId] 优量汇广告android id
+  ///
+  /// [tIosId] 优量汇广告ios id
   ///
   /// [width] 宽 dp
   ///
@@ -262,15 +309,19 @@ class FlutterUniversalad {
   /// [USplashCallBack] 广告回调
   ///
   static Widget splashAdView({
-    required String pangolinId,
-    required String tencentId,
+    required String pAndroidId,
+    required String pIosId,
+    required String tAndroidId,
+    required String tIosId,
     required int loadType,
     required double probability,
     required USplashCallBack? callBack,
   }) {
     return SplashAdView(
-      pangolinId: pangolinId,
-      tencentId: tencentId,
+      pAndroidId: pAndroidId,
+      pIosId: pIosId,
+      tAndroidId: tAndroidId,
+      tIosId: tIosId,
       loadType: loadType,
       probability: probability,
       callBack: callBack,

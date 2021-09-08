@@ -5,11 +5,14 @@ import 'package:flutter_universalad/ad_code.dart';
 /// @Description: 激励广告加载相关参数
 
 class RewardLoadBean {
-  String pangolinId = "";
-  String tencentId = "";
+  String pAndroidId = "";
+  String pIosId = "";
+  String tAndroidId = "";
+  String tIosId = "";
   String rewardName = "";
   int rewardAmount = 0;
   String userID = "";
+  String customData ="";
   int loadType = 0;
   double probability = 0.0;
   int lastSdk = UniversalSdkKType.PANGOLIN; //上一次显示的广告sdk

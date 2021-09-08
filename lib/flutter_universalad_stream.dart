@@ -31,8 +31,7 @@ class FlutterUniversalAdStream {
         },
         onFail: (code, message) {
           // print("激励广告失败 $code $message");
-          if (AdManage.instance.rewardLoadBean.lastShowSuccess &&
-              AdManage.instance.rewardLoadBean.pangolinId.isNotEmpty) {
+          if (AdManage.instance.rewardLoadBean.lastShowSuccess) {
             AdManage.instance.rewardLoadBean.lastShowSuccess = false;
             AdManage.instance.loadRewardAd(UniversalSdkKType.PANGOLIN);
           } else {
@@ -80,8 +79,7 @@ class FlutterUniversalAdStream {
         },
         onFail: (code, message) {
           // print("插屏广告失败 $code $message");
-          if (AdManage.instance.interstitialLoadBean.lastShowSuccess &&
-              AdManage.instance.interstitialLoadBean.pangolinId.isNotEmpty) {
+          if (AdManage.instance.interstitialLoadBean.lastShowSuccess) {
             AdManage.instance.interstitialLoadBean.lastShowSuccess = false;
             AdManage.instance.loadInteractionAd(UniversalSdkKType.PANGOLIN);
           } else {
@@ -118,8 +116,7 @@ class FlutterUniversalAdStream {
         },
         onFail: (error) {
           // print("激励广告失败 $error");
-          if (AdManage.instance.rewardLoadBean.lastShowSuccess &&
-              AdManage.instance.rewardLoadBean.tencentId.isNotEmpty) {
+          if (AdManage.instance.rewardLoadBean.lastShowSuccess) {
             AdManage.instance.rewardLoadBean.lastShowSuccess = false;
             AdManage.instance.loadRewardAd(UniversalSdkKType.TENCENT);
           } else {
@@ -134,6 +131,7 @@ class FlutterUniversalAdStream {
           // print("激励广告跳过");
         },
         onReady: () async {
+          AdManage.instance.rewardLoadBean.lastSdk = UniversalSdkKType.PANGOLIN;
           // print("激励广告预加载准备就绪");
           uRewardCallBack?.onReady!(UniversalSdkKType.PANGOLIN);
         },
@@ -167,8 +165,7 @@ class FlutterUniversalAdStream {
         },
         onFail: (error) {
           // print("新模板渲染插屏广告错误 $error");
-          if (AdManage.instance.interstitialLoadBean.lastShowSuccess &&
-              AdManage.instance.interstitialLoadBean.tencentId.isNotEmpty) {
+          if (AdManage.instance.interstitialLoadBean.lastShowSuccess) {
             AdManage.instance.interstitialLoadBean.lastShowSuccess = false;
             AdManage.instance.loadInteractionAd(UniversalSdkKType.TENCENT);
           } else {
