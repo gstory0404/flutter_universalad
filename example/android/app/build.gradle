@@ -41,11 +41,6 @@ android {
         versionName flutterVersionName
     }
 
-    signingConfigs {
-        config {
-
-        }
-    }
 
 
     buildTypes {
