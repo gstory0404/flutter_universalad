@@ -137,7 +137,7 @@ class AdManage {
     } else {
       //穿山甲
       await FlutterUnionad.loadRewardVideoAd(
-          mIsExpress: false,
+          mIsExpress: rewardLoadBean.mIsExpress,
           androidCodeId: rewardLoadBean.pAndroidId,
           iosCodeId: rewardLoadBean.pIosId,
           rewardName: rewardLoadBean.rewardName,

@@ -140,7 +140,7 @@ class FlutterUniversalAdStream {
           // print("激励广告预加载未准备就绪");
           uRewardCallBack?.onUnReady!(UniversalSdkKType.PANGOLIN);
         },
-        onVerify: (rewardVerify, rewardAmount, rewardName) {
+        onVerify: (rewardVerify, rewardAmount, rewardName,errorCode,error) {
           // print("激励广告奖励  $rewardVerify   $rewardAmount  $rewardName");
           uRewardCallBack?.onVerify!(UniversalSdkKType.PANGOLIN, "",
               rewardVerify, rewardAmount, rewardName);

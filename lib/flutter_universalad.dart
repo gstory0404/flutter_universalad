@@ -114,6 +114,7 @@ class FlutterUniversalad {
     required String userID,
     required int loadType,
     required double probability,
+    bool? mIsExpress,
     String? customData,
   }) async {
     //保存数据
@@ -125,6 +126,7 @@ class FlutterUniversalad {
     AdManage.instance.rewardLoadBean.rewardAmount = rewardAmount;
     AdManage.instance.rewardLoadBean.userID = userID;
     AdManage.instance.rewardLoadBean.loadType = loadType;
+    AdManage.instance.rewardLoadBean.mIsExpress = mIsExpress ?? false;
     AdManage.instance.rewardLoadBean.probability = probability;
     int type = await AdManage.instance
         .getLoadAdtype(UniversalAdType.REWARD, loadType, probability);
