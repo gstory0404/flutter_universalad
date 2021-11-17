@@ -99,6 +99,9 @@ class _BannerAdViewState extends State<BannerAdView> {
             onClick: () {
               widget.callBack?.onClick!(UniversalSdkKType.TENCENT);
             },
+            onExpose: (){
+
+            }
           ),
         ),
       );

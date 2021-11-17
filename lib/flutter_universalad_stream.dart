@@ -100,6 +100,9 @@ class FlutterUniversalAdStream {
           print("2插屏广告预加载未准备就绪");
           uInteractionCallBack?.onUnReady!(UniversalSdkKType.TENCENT);
         },
+        onExpose: (){
+
+        }
       ),
     );
 

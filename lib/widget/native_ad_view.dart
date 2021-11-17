@@ -99,6 +99,9 @@ class _NativeAdViewState extends State<NativeAdView> {
             onClick: () {
               widget.callBack?.onClick!(UniversalSdkKType.TENCENT);
             },
+            onExpose: (){
+
+            }
           ),
         ),
       );

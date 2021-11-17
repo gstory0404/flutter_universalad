@@ -84,7 +84,7 @@ class _SplashAdViewState extends State<SplashAdView> {
               widget.callBack?.onClose!(UniversalSdkKType.TENCENT);
             },
             onExpose: () {
-              print("开屏广告曝光");
+
             },
             onFail: (code, message) {
               if (isLoadSuccess) {
