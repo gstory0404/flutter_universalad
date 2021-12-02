@@ -154,9 +154,9 @@ class _MyAppState extends State<Index> {
                       //ios 激励视频广告id  必填
                       supportDeepLink: true,
                       //是否支持 DeepLink 选填
-                      rewardName: "100金币",
+                      rewardName: "穿山甲奖励金币",
                       //奖励名称 选填
-                      rewardAmount: 100,
+                      rewardAmount: 199,
                       //奖励数量 选填
                       userID: "123",
                       //  用户id 选填
@@ -176,8 +176,8 @@ class _MyAppState extends State<Index> {
                       androidId: "5042816813706194",
                       //广告id
                       iosId: "8062535056034159",
-                      rewardName: "金币",
-                      rewardAmount: 10,
+                      rewardName: "优量汇奖励金币",
+                      rewardAmount: 299,
                       userID: "123",
                     );
                   },
@@ -198,9 +198,9 @@ class _MyAppState extends State<Index> {
                       //优量汇广告ios id
                       tIosId: "8062535056034159",
                       //奖励名称
-                      rewardName: "金币",
+                      rewardName: "聚合奖励金币",
                       //奖励数量
-                      rewardAmount: 10,
+                      rewardAmount: 399,
                       //用户id
                       userID: "123",
                       //交替加载

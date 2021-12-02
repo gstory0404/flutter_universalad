@@ -139,7 +139,7 @@ class FlutterUniversalAdStream {
           uRewardCallBack?.onReady!(UniversalSdkKType.PANGOLIN);
         },
         onUnReady: () {
-          AdManage.instance.interstitialLoadBean.lastSdk = UniversalSdkKType.PANGOLIN;
+          AdManage.instance.rewardLoadBean.lastSdk = UniversalSdkKType.PANGOLIN;
           // print("激励广告预加载未准备就绪");
           uRewardCallBack?.onUnReady!(UniversalSdkKType.PANGOLIN);
         },
