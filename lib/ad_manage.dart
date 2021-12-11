@@ -166,7 +166,7 @@ class AdManage {
       //穿山甲
       FlutterUnionad.loadFullScreenVideoAdInteraction(
         androidCodeId: interstitialLoadBean.pAndroidId,
-        iosCodeId: interstitialLoadBean.tIosId,
+        iosCodeId: interstitialLoadBean.pIosId,
       );
     }
   }
