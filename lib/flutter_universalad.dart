@@ -69,6 +69,7 @@ class FlutterUniversalad {
       androidId: tAndroidId,
       iosId: tIosId,
       debug: debug,
+      personalized: FlutterTencentadPersonalized.show,
     );
     callBack?.pangolinInit!(pangolinInit);
     callBack?.tencentInit!(tencentInit);
