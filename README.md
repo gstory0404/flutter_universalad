@@ -7,6 +7,9 @@
 ## 简介
   flutter_universalad是一款聚合字节跳动穿山甲[flutter_unionad](https://github.com/gstory0404/flutter_unionad)、腾讯优量汇(广点通)[flutter_tencentad](https://github.com/gstory0404/flutter_tencentad)的聚合广告插件,方便直接调用多个厂商广告。[体验demo](https://www.pgyer.com/j7YB)
   
+<img src="https://github.com/gstory0404/flutter_universalad/blob/master/images/universalad.gif" width="30%">
+ 
+  
 ## 文档
 
 推荐参考以下插件的文档进行插件的集成。
