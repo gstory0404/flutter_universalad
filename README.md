@@ -314,10 +314,12 @@ FlutterUniversalad.bannerAdView(
 |聚合广告插件|[flutter_universalad](https://github.com/gstory0404/flutter_universalad)|
 |百度百青藤广告插件|[flutter_baiduad](https://github.com/gstory0404/flutter_baiduad)|
 |字节穿山甲内容合作插件|[flutter_pangrowth](https://github.com/gstory0404/flutter_pangrowth)|
+|文档预览插件|[file_preview](https://github.com/gstory0404/file_preview)|
+|滤镜|[gpu_image](https://github.com/gstory0404/gpu_image)|
 
 ## 联系方式
 * Email: gstory0404@gmail.com
-* Blog：https://gstory.vercel.app/
+* Blog：https://www.gstory.cn/
 
 * QQ群: <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=4j2_yF1-pMl58y16zvLCFFT2HEmLf6vQ&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="649574038" title="flutter交流"></a>
 
