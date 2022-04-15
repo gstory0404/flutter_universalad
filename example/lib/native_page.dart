@@ -64,7 +64,7 @@ class _NativePageState extends State<NativePage> {
             FlutterTencentad.expressAdView(
                 androidId: "4072918853903023",
                 //广告id
-                iosId: "7082132016439065",
+                iosId: "9013224776438964",
                 //广告宽 单位dp
                 viewWidth: 400,
                 //广告高  单位dp
@@ -96,7 +96,7 @@ class _NativePageState extends State<NativePage> {
               //优量汇广告android id
               tAndroidId: "4072918853903023",
               //优量汇广告ios id
-              tIosId: "7082132016439065",
+              tIosId: "9013224776438964",
               width: 400.0,
               height: 260.0,
               loadType: UniversalLoadType.INTURN,

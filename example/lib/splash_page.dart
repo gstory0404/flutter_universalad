@@ -26,7 +26,7 @@ class _SplashPageState extends State<SplashPage> {
         //优量汇广告android id
         tAndroidId: "4052216802299999",
         //优量汇广告ios id
-        tIosId: "8012030096434021",
+        tIosId: "4063020736638922",
         //交替加载
         loadType: UniversalLoadType.INTURN,
         //穿山甲出现的几率

@@ -175,7 +175,7 @@ class _MyAppState extends State<Index> {
                     await FlutterTencentad.loadRewardVideoAd(
                       androidId: "5042816813706194",
                       //广告id
-                      iosId: "8062535056034159",
+                      iosId: "5083426726434762",
                       rewardName: "优量汇奖励金币",
                       rewardAmount: 299,
                       userID: "123",
@@ -196,7 +196,7 @@ class _MyAppState extends State<Index> {
                       //优量汇广告android id
                       tAndroidId: "5042816813706194",
                       //优量汇广告ios id
-                      tIosId: "8062535056034159",
+                      tIosId: "5083426726434762",
                       //奖励名称
                       rewardName: "聚合奖励金币",
                       //奖励数量
@@ -236,7 +236,7 @@ class _MyAppState extends State<Index> {
                       //android广告id
                       androidId: "9062813863614416",
                       //广告id
-                      iosId: "1052938046031440",
+                      iosId: "9083924706438985",
                       //是否全屏
                       isFullScreen: false,
                     );
@@ -256,7 +256,7 @@ class _MyAppState extends State<Index> {
                       //优量汇广告android id
                       tAndroidId: "9062813863614416",
                       //优量汇广告ios id
-                      tIosId: "1052938046031440",
+                      tIosId: "9083924706438985",
                       //是否全屏 仅优量汇起效
                       isFullScreen: false,
                       //交替加载
