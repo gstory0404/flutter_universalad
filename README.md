@@ -1,7 +1,7 @@
 # 字节跳动穿山甲广告、腾讯优量汇(广点通)聚合广告插件 Flutter版本
 
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.0.11-success></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.0.12-success></a>
 </p>
 
 ## 简介
@@ -32,7 +32,7 @@
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_universalad: ^1.0.11
+flutter_universalad: ^1.0.12
 ```
   
 #### 2、引入
@@ -111,7 +111,8 @@ await FlutterUniversalad.loadRewardVideoAd(
 激励广告监听
 
 ```dart
-FlutterUniversalAdStream.initAdStream(
+FlutterUniversalAdStreamSubscription? _subscripti;
+_subscripti = FlutterUniversalAdStream.initAdStream(
     uRewardCallBack: URewardCallBack(
     onShow: (sdkType) {
         print("$sdkType  激励广告开始显示");
@@ -138,6 +139,12 @@ FlutterUniversalAdStream.initAdStream(
         },
     ),  
    );
+//移除监听
+@override
+void dispose() {
+  super.dispose();
+  _subscription?.cancel();
+}
 ```
 展示激励广告
 ```dart
@@ -170,7 +177,8 @@ await FlutterUniversalad.loadInterstitialAd(
 插屏广告监听
 
 ```dart
-FlutterUniversalAdStream.initAdStream(
+FlutterUniversalAdStreamSubscription? _subscripti;
+_subscription = FlutterUniversalAdStream.initAdStream(
      uInteractionCallBack: UInteractionCallBack(
         onShow: (sdkType) {
           print("$sdkType  插屏广告开始显示");
@@ -194,6 +202,13 @@ FlutterUniversalAdStream.initAdStream(
         },
       ),
    );
+
+//移除监听
+@override
+void dispose() {
+  super.dispose();
+  _subscription?.cancel();
+}
 ```
 展示插屏广告
 ```dart

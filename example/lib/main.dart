@@ -29,6 +29,8 @@ class _MyAppState extends State<Index> {
   String _registerResult = "";
   String _sdkVersion = "";
 
+  FlutterUniversalAdStreamSubscription? _subscription;
+
   @override
   void initState() {
     super.initState();
@@ -72,7 +74,7 @@ class _MyAppState extends State<Index> {
 
   ///广告监听
   void _initListener() {
-    FlutterUniversalAdStream.initAdStream(
+    _subscription = FlutterUniversalAdStream.initAdStream(
       uRewardCallBack: URewardCallBack(
         onShow: (sdkType) {
           print("$sdkType  激励广告开始显示");
@@ -314,5 +316,11 @@ class _MyAppState extends State<Index> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _subscription?.cancel();
   }
 }

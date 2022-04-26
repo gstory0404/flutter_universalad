@@ -1,3 +1,7 @@
+## 1.0.12
+
+* 1、新增FlutterUniversalAdStream.initAdStream监听释放
+
 ## 1.0.11
 
 * 1、升级sdk
