@@ -1,3 +1,6 @@
+## 1.1.1
+* 兼容Flutter3.0
+
 ## 1.0.12
 
 * 1、新增FlutterUniversalAdStream.initAdStream监听释放
