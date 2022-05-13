@@ -1,7 +1,7 @@
 # 字节跳动穿山甲广告、腾讯优量汇(广点通)聚合广告插件 Flutter版本
 
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.1.1-success></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.1.0-success></a>
 </p>
 
 ## 简介
@@ -33,7 +33,7 @@
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_universalad: ^1.1.1
+flutter_universalad: ^1.1.0
 ```
   
 #### 2、引入
