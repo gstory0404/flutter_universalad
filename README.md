@@ -1,7 +1,7 @@
 # 字节跳动穿山甲广告、腾讯优量汇(广点通)聚合广告插件 Flutter版本
 
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.1.0-success></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.1.1-success></a>
 </p>
 
 ## 简介
@@ -20,20 +20,21 @@
 
 ## 本地环境
 ```
-[✓] Flutter (Channel stable, 3.0.0, on macOS 12.3.1 21E258 darwin-x64, locale zh-Hans-CN)
+[✓] Flutter (Channel stable, 3.0.1, on macOS 12.4 21F79 darwin-x64, locale zh-Hans-CN)
 [✓] Android toolchain - develop for Android devices (Android SDK version 33.0.0-rc1)
-[✓] Xcode - develop for iOS and macOS (Xcode 13.3.1)
+[✓] Xcode - develop for iOS and macOS (Xcode 13.4)
 [✓] Chrome - develop for the web
-[✓] Android Studio (version 2021.1)
-[✓] VS Code (version 1.66.2)
-[✓] Connected device (3 available)
+[✓] Android Studio (version 2021.2)
+[✓] IntelliJ IDEA Ultimate Edition (version 2022.1.1)
+[✓] VS Code (version 1.67.1)
+[✓] Connected device (4 available)
 [✓] HTTP Host Availability
 ```
 
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_universalad: ^1.1.0
+flutter_universalad: ^1.1.1
 ```
   
 #### 2、引入
