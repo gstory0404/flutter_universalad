@@ -67,7 +67,7 @@ class _BannerPageState extends State<BannerPage> {
             FlutterTencentad.bannerAdView(
               androidId: "8042711873318113",
               //广告id
-              iosId: "7013623726731814",
+              iosId: "4043774915303757",
               //广告宽 单位dp
               viewWidth: 500,
               //广告高  单位dp   宽高比应该为6.4:1
@@ -100,7 +100,7 @@ class _BannerPageState extends State<BannerPage> {
               //优量汇广告android id
               tAndroidId: "8042711873318113",
               //优量汇广告ios id
-              tIosId: "7013623726731814",
+              tIosId: "4043774915303757",
               width: 300.0,
               height: 100.0,
               loadType: UniversalLoadType.INTURN,
