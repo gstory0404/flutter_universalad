@@ -1,7 +1,7 @@
 # 字节跳动穿山甲广告、腾讯优量汇(广点通)聚合广告插件 Flutter版本
 
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.1.3-success></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.1.4-success></a>
 </p>
 
 ## 简介
@@ -34,7 +34,7 @@
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_universalad: ^1.1.3
+flutter_universalad: ^1.1.4
 ```
   
 #### 2、引入
@@ -318,10 +318,6 @@ FlutterUniversalad.bannerAdView(
             )
 ```
 
-## 说明
-
-* 聚合插件仅支持穿山甲、优量汇(广点通)的andorid、ios广告。
-
 ## 插件链接
 
 |插件|地址|
@@ -333,6 +329,7 @@ FlutterUniversalad.bannerAdView(
 |字节穿山甲内容合作插件|[flutter_pangrowth](https://github.com/gstory0404/flutter_pangrowth)|
 |文档预览插件|[file_preview](https://github.com/gstory0404/file_preview)|
 |滤镜|[gpu_image](https://github.com/gstory0404/gpu_image)|
+|Gromore聚合广告|[gromore](https://github.com/gstory0404/gromore)|
 
 ### 开源不易，觉得有用的话可以请作者喝杯奶茶🧋
 <img src="https://github.com/gstory0404/flutter_universalad/blob/master/images/weixin.jpg" width = "200" height = "160" alt="打赏"/>

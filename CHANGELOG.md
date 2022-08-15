@@ -1,3 +1,7 @@
+## 1.1.4
+* 兼容flutter_unionad: ^1.3.8
+* 兼容flutter_tencentad: ^1.2.2
+
 ## 1.1.3
 * 1、升级sdk
 * 

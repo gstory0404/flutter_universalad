@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_unionad: ^1.3.7
+  flutter_unionad: ^1.3.8
   flutter_tencentad: ^1.2.2
 #  flutter_tencentad:
 #    git:
