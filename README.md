@@ -4,6 +4,8 @@
 <a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.1.4-success></a>
 </p>
 
+## 📢 推荐使用新版聚合插件[GTAds](https://github.com/gstory0404/GTAds)，支持自定义广告插入
+
 ## 简介
   flutter_universalad是一款聚合字节跳动穿山甲[flutter_unionad](https://github.com/gstory0404/flutter_unionad)、腾讯优量汇(广点通)[flutter_tencentad](https://github.com/gstory0404/flutter_tencentad)的聚合广告插件,方便直接调用多个厂商广告。[体验demo](https://www.pgyer.com/j7YB)
   
