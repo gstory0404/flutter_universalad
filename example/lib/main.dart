@@ -148,7 +148,6 @@ class _MyAppState extends State<Index> {
                   child: new Text('穿山甲激励广告'),
                   onPressed: () async {
                     FlutterUnionad.loadRewardVideoAd(
-                      mIsExpress: true,
                       //是否个性化 选填
                       androidCodeId: "945418088",
                       //Android 激励视频广告id  必填

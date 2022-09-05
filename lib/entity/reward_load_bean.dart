@@ -17,5 +17,4 @@ class RewardLoadBean {
   double probability = 0.0;
   int lastSdk = UniversalSdkKType.PANGOLIN; //上一次显示的广告sdk
   bool lastShowSuccess = true; //上一次加载广告是否成功
-  bool mIsExpress = false;
 }

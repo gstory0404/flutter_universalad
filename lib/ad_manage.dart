@@ -137,7 +137,6 @@ class AdManage {
     } else {
       //穿山甲
       await FlutterUnionad.loadRewardVideoAd(
-          mIsExpress: rewardLoadBean.mIsExpress,
           androidCodeId: rewardLoadBean.pAndroidId,
           iosCodeId: rewardLoadBean.pIosId,
           rewardName: rewardLoadBean.rewardName,
@@ -153,7 +152,6 @@ class AdManage {
   /// [type] 广告SDK
   ///
   void loadInteractionAd(int type) {
-    print("插屏=====》 $type");
     interstitialLoadBean.lastSdk = type;
     if (type == UniversalSdkKType.TENCENT) {
       //优量汇
