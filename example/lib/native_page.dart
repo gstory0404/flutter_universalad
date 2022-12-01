@@ -42,9 +42,7 @@ class _NativePageState extends State<NativePage> {
               // 期望view 宽度 dp 必填
               expressViewHeight: 275.5,
               //期望view高度 dp 必填
-              expressNum: 2,
               mIsExpress: true,
-              //一次请求广告数量 大于1小于3 必填
               callBack: FlutterUnionadNativeCallBack(
                 onShow: () {
                   print("信息流广告显示");

@@ -76,33 +76,30 @@ class _NativeAdViewState extends State<NativeAdView> {
           viewWidth: widget.width.toInt(),
           viewHeight: widget.height.toInt(),
           callBack: FlutterTencentadExpressCallBack(
-            onShow: () {
-              widget.callBack?.onShow!(UniversalSdkKType.TENCENT);
-            },
-            onFail: (code, message) {
-              if (isLoadSuccess) {
-                setState(() {
-                  isLoadSuccess = false;
-                  _type = UniversalSdkKType.PANGOLIN;
-                });
-              } else {
-                widget.callBack?.onFail!(
-                    UniversalSdkKType.TENCENT, code, message);
-                setState(() {
-                  _isShowAd = false;
-                });
-              }
-            },
-            onClose: () {
-              widget.callBack?.onClose!(UniversalSdkKType.TENCENT);
-            },
-            onClick: () {
-              widget.callBack?.onClick!(UniversalSdkKType.TENCENT);
-            },
-            onExpose: (){
-
-            }
-          ),
+              onShow: () {
+                widget.callBack?.onShow!(UniversalSdkKType.TENCENT);
+              },
+              onFail: (code, message) {
+                if (isLoadSuccess) {
+                  setState(() {
+                    isLoadSuccess = false;
+                    _type = UniversalSdkKType.PANGOLIN;
+                  });
+                } else {
+                  widget.callBack?.onFail!(
+                      UniversalSdkKType.TENCENT, code, message);
+                  setState(() {
+                    _isShowAd = false;
+                  });
+                }
+              },
+              onClose: () {
+                widget.callBack?.onClose!(UniversalSdkKType.TENCENT);
+              },
+              onClick: () {
+                widget.callBack?.onClick!(UniversalSdkKType.TENCENT);
+              },
+              onExpose: () {}),
         ),
       );
     } else {
@@ -110,7 +107,6 @@ class _NativeAdViewState extends State<NativeAdView> {
         child: FlutterUnionad.nativeAdView(
           androidCodeId: widget.pAndroidId,
           iosCodeId: widget.pIosId,
-          expressNum: 1,
           expressViewWidth: widget.width,
           expressViewHeight: widget.height,
           callBack: FlutterUnionadNativeCallBack(
