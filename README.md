@@ -1,7 +1,11 @@
 # 字节跳动穿山甲广告、腾讯优量汇(广点通)聚合广告插件 Flutter版本
 
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/badge/flutter_universalad-v1.1.14-success></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/pub/v/flutter_universalad?color=orange></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/pub/likes/flutter_universalad></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_universalad"><img src=https://img.shields.io/pub/points/flutter_universalad></a>
+<a href="https://github.com/gstory0404/flutter_universalad/commits"><img src=https://img.shields.io/github/last-commit/gstory0404/flutter_universalad></a>
+<a href="https://github.com/gstory0404/flutter_universalad"><img src=https://img.shields.io/github/stars/gstory0404/flutter_universalad></a>
 </p>
 
 ## 📢 推荐使用新版聚合插件[GTAds](https://github.com/gstory0404/GTAds)，支持自定义广告插入
