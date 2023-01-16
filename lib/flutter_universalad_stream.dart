@@ -140,6 +140,9 @@ class FlutterUniversalAdStream {
           // print("激励广告跳过");
         },
         onReady: () async {
+
+        },
+        onCache: () async {
           AdManage.instance.rewardLoadBean.lastSdk = UniversalSdkKType.PANGOLIN;
           // print("激励广告预加载准备就绪");
           uRewardCallBack?.onReady!(UniversalSdkKType.PANGOLIN);
