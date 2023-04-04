@@ -26,21 +26,21 @@
 
 ## 开发环境
 ```
-[✓] Flutter (Channel stable, 3.3.10, on macOS 13.1 22C65 darwin-x64, locale zh-Hans-CN)
+[✓] Flutter (Channel stable, 3.7.7, on macOS 13.2.1 22D68 darwin-x64, locale zh-Hans-CN)
 [✓] Android toolchain - develop for Android devices (Android SDK version 33.0.1)
-[✓] Xcode - develop for iOS and macOS (Xcode 14.2)
+[✓] Xcode - develop for iOS and macOS (Xcode 14.3)
 [✓] Chrome - develop for the web
-[✓] Android Studio
-[✓] IntelliJ IDEA Ultimate Edition (version 2022.3.1)
-[✓] VS Code (version 1.74.2)
+[✓] Android Studio (version 2022.1)
+[✓] IntelliJ IDEA Ultimate Edition (version 2023.1)
+[✓] VS Code (version 1.76.2)
 [✓] Connected device (4 available)
-[✓] HTTP Host Availability
+[✓] HTTP Host Availabilit
 ```
 
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_universalad: ^1.1.15
+flutter_universalad: ^latest
 ```
   
 #### 2、引入
