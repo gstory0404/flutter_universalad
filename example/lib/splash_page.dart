@@ -16,7 +16,6 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
     return Container(
       child: FlutterUniversalad.splashAdView(
         //穿山甲广告android id

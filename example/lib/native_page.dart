@@ -17,7 +17,6 @@ class _NativePageState extends State<NativePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        brightness: Brightness.dark,
         centerTitle: true,
         title: Text(
           "信息流广告",

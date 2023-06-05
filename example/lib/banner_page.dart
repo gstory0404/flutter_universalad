@@ -17,7 +17,6 @@ class _BannerPageState extends State<BannerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        brightness: Brightness.dark,
         centerTitle: true,
         title: Text(
           "banner广告",
