@@ -1,3 +1,8 @@
+## 1.1.18
+* android kt升级1.6.10 gradle插件7.1.2
+* 穿山甲flutter_unionad升级1.3.22
+* 优量汇flutter_tencentad升级1.2.16
+
 ## 1.1.17
 * 穿山甲flutter_unionad升级1.3.21
 * 优量汇flutter_tencentad升级1.2.15
