@@ -1,3 +1,7 @@
+## 1.1.23
+* 穿山甲flutter_unionad升级1.3.28
+* 优量汇flutter_tencentad升级1.2.21
+
 ## 1.1.22
 * 优量汇flutter_tencentad升级1.2.20
 
